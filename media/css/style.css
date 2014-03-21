@@ -36,17 +36,13 @@ hr {
 .center {
   text-align: center; }
 
-::selection {
-  color: #fff;
-  background-color: #333; }
-
 a, header #header h1 a, article .title a, article .meta .tags a, article .divider a {
   text-decoration: none;
   color: #bb2222; }
   a:hover, header #header h1 a:hover, article .title a:hover, article .meta .tags a:hover, article .divider a:hover {
     color: #dd1144; }
 
-blockquote, pre code {
+blockquote  {
   background-color: #f8f8f8;
   padding: 0 1em;
   border: 1px dashed #eee !important;
@@ -55,12 +51,6 @@ blockquote, pre code {
   line-height: 1.6;
   display: block;
   overflow: auto; }
-
-code {
-  background-color: #f8f8f8;
-  padding: 2px 5px;
-  border: 1px dashed #e0e0e0;
-  font-family: "Ubuntu", monospace; }
 
 h1, h2 {
   font-size: 1.4em; }
