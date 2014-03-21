@@ -1,7 +1,6 @@
 ---
 title: '迭代，自指'
 layout: post
-guid: urn:uuid:2364e40e-b5eb-42fa-8fc2-5ac4714ed9be
 
 ---
 
