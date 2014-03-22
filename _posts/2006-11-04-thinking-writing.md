@@ -1,5 +1,5 @@
 ---
-title: 边想边写，无题
+title: '边想边写，无题'
 layout: post
 published: true
 
