@@ -11,7 +11,6 @@
     <link href="/atom.xml" rel="alternate" title="{{ site.name }}" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/GitHub2.css">
-    <link rel="stylesheet" href="/media/css/fontawesome.css">
   </head>
   <body>
       <div id="main" role="main">
@@ -21,7 +20,7 @@
           </div>
           <nav>
             {% for nav in site.navigations %}
-            <span><a title="{{ nav.title }}" href="{{ nav.href }}"><i class="{{ nav.class }}"></i></a></span>
+            <span><a title="{{ nav.title }}" href="{{ nav.href }}">{{ nav.title }}</a></span>
             {% endfor %}
           </nav>
         </header>
