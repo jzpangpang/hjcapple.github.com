@@ -61,7 +61,8 @@ time 和 date 可以作为输出使用，如果你写的操纵符要作为输入
 为什么写成这样就可以用的呢? 我以输出为例说一下。
 C++库里面有个函数为
 
-	std::ostream& operator << (std::ostream& ostr, std::ostream& (*pf)(std::ostream&), 
+	std::ostream& operator << (std::ostream& ostr,
+                               std::ostream& (*pf)(std::ostream&);
 
 pf为函数指针，注意指针类型和我们写的 time 和 date 一样。它的实现可以简单的为 return pf(ostr);。
 
@@ -94,7 +95,7 @@ pf为函数指针，注意指针类型和我们写的 time 和 date 一样。它
 	private:
 	    char _c;
 	    int _n;
-	};****
+	};
 
 
 之后可以这样使用
