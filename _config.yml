@@ -9,8 +9,6 @@ author: "HJC"
 
 navigations:
   - title: 文章
-    class: fa fa-list-ul
     href: /index.html
-  - title: 标签
-    class: fa fa-tags
-    href: /tags.html
+  - title: 我
+    href: /about.html
