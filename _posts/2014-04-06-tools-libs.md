@@ -29,5 +29,34 @@ BlocksKit
 ---------
 让一些iOS基础类，更好地支持Block语法。
 
-git地址 [https://github.com/zwaldowski/BlocksKit.git](https://github.com/zwaldowski/BlocksKit.git)
+git地址 [https://github.com/zwaldowski/BlocksKit](https://github.com/zwaldowski/BlocksKit)
+
+
+Masonry
+---------
+定义了自己的DSL。大大简化iOS/Mac中，AutoLayout的写法。比如
+
+	[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+	    make.edges.equalTo(superview).with.insets(padding);
+	}];
+	
+git地址 [https://github.com/cloudkite/Masonry](https://github.com/cloudkite/Masonry)
+
+
+Classy
+--------
+使用类似css的方式，去配置UIView界面。
+
+网址: [http://classy.as/](http://classy.as/)
+
+git地址 [https://github.com/cloudkite/Classy](https://github.com/cloudkite/Classy)
+
+
+Reveal
+-----------
+查看iOS应用的UI层次结构。
+
+网址: [http://revealapp.com/](http://revealapp.com/)
+
+
 
