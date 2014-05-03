@@ -28,6 +28,7 @@ published: true
 
 | 名称            | 说明
 |:--------------		|--------
+| [ReactiveCocoa]	| 函数式，响应式编程框架 
 | [BlocksKit] 		| 让一些iOS基础类，更好地支持Block语法。
 | [Masonry] 			| 定义了自己的DSL。大大简化iOS/Mac中，AutoLayout的写法。
 | [Classy] 			| 使用类似css的方式，去配置UIView界面。
@@ -37,6 +38,7 @@ published: true
 | [facebook/Shimmer] 		| 添加类似Facebook-Paper中，那种波光闪动的效果。
 | [facebook/KVOController] | 用于 key-value 编程
 
+[ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
 [Masonry]: 		https://github.com/cloudkite/Masonry
 [Classy]: 		https://github.com/cloudkite/Classy
