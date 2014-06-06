@@ -49,4 +49,11 @@ published: true
 [facebook/KVOController]: https://github.com/facebook/KVOController
 
 
+## 常用命令
+
+| 命令            | 说明
+|:--------------		|--------
+| qmake -spec macx-xcode	| 从 qt 配置文件，生成 xcode工程
+
+
 
