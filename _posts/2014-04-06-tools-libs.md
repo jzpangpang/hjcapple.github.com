@@ -54,6 +54,7 @@ published: true
 | 命令            | 说明
 |:--------------		|--------
 | qmake -spec macx-xcode	| 从 qt 配置文件，生成 xcode工程
+| stars:>1	| 在 github 中 搜索有星星的项目，之后可以按照星星多少来排序
 
 
 
