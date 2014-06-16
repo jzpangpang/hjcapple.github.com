@@ -57,4 +57,17 @@ published: true
 | stars:>1	| 在 github 中 搜索有星星的项目，之后可以按照星星多少来排序
 
 
+## Mac 系统常用快捷键
+| 快捷键           | 说明
+|:--------------		|--------
+| Command + W | 关闭窗口
+| Command + Q | 关闭程序
+| Command + Space | 切换输入法
+| Command + Control | Spotlight
+| Command + Tab | 切换程序
+| Command + S | 保存
+| Command + F | 搜索
+| Command + Option + F | 替换
+
+
 
