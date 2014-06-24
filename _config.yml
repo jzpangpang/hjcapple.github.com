@@ -2,7 +2,8 @@ markdown: rdiscount
 pygments: true
 permalink: /:year/:month/:day/:title.html
 name: "HJC Blog"
-markdown: kramdown
+markdown: rdiscount
+#markdown: kramdown
 
 author: "HJC"
 #disqus: "gopherwood"
