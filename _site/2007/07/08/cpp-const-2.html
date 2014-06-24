@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="HJC" />
+    
+    <title>理解C++ — 变量与常量(2)</title>
+    
+    <link href="/atom.xml" rel="alternate" title="HJC Blog" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/default.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="HJC Blog" class="" href="/">HJC Blog</a></h1>
+          </div>
+          <nav>
+            
+            <span><a title="文章" href="/index.html">文章</a></span>
+            
+            <span><a title="我" href="/about.html">我</a></span>
+            
+          </nav>
+        </header>
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>理解C++ — 变量与常量(2) </h2>
+  </section>
+
+  <section class="meta">
+
+  <span class="tags">
+    <p>版权所有，未经许可请勿转载</p>
+  </span>
+
+  <span class="time">
+    <time datetime="2007-07-08">2007-07-08</time>
+  </span>
+  
+  <span class="tags">
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p><a href="/2007/07/07/cpp-const-1.html">上接变量与常量(1)</a></p>
+
+<h2 id="constcast">const_cast</h2>
+<p>前面说过, const 这个关键字可以施加一种约束，使得不会错改内存的值。要是真的想改变那个值，可以通过const_cast 转型。比如：</p>
+
+<pre><code>	int a = 2;
+	const int* pa = &amp;a;
+	//*pa = 100;                  Error
+	*const_cast&lt;int*&gt;(pa) = 100; //OK
+</code></pre>
+
+<p><code>*pa = 100</code> 编译错误是因为我们用 const 施加一种约束。而 const_cast 转型符将const约束取消掉，故</p>
+
+<pre><code>	*const_cast&lt;int*&gt;(pa) = 100 可以编译通过。const_cast 能够用在指针和引用类型。
+</code></pre>
+
+<h2 id="section">设计理念</h2>
+<p>这样一个转型符，给程序员更大的自由。C++ 的一个设计理念是信任程序员，它假设程序员知道自己在干什么。当写出</p>
+
+<pre><code>	int a = 2;
+	const int* pa = &amp;a;
+	*pa = 100;
+</code></pre>
+
+<p>的时候，可能是不小心。但是当写出</p>
+
+<pre><code>	int a = 2;
+	const int* pa = &amp;a;
+	*const_cast&lt;int*&gt;(pa) = 100;
+</code></pre>
+
+<p>的时候就代表清楚自己想做什么了。</p>
+
+<p>C++ 是自由的，但是为了享受这份自由，前期需经历磨难。以学自行车为例，C++ 如同放开双手，让你自己去骑，开头会跌得很惨，之后可灵活拐向任何地方。而有些语言就如同在车子后面安装两个小轮子，会很安全，但想骑快或想拐进窄巷，那小轮子就是累赘。</p>
+
+<h2 id="section-1">内存布局</h2>
+<p>那些常量变量，静态动态，是怎么在内存是怎么存放的呢?</p>
+
+<h3 id="section-2">分区</h3>
+<p>我们知道，数据有不同的性质，有些可读不可写，有些可读可写，有些只可以给系统读写……等等。这样不同性质的数据就分开放到内存不同的位置，这叫分段或者叫分区。</p>
+
+<p>分段之后最大的好处是容易实现保护。可以指定从开始到结束，这个范围的内存空间的性质，假设是分区只读的，程序执行的时候意图修改，就会触发错误处理。</p>
+
+<p>我们经常会将空指针赋值为 0, 低端地址通常为系统保留，不可被访问，当想引用地址 0 中的数据，就会引发错误。</p>
+
+<h3 id="windows">windows程序执行时的典型内存分区</h3>
+
+<pre><code> 高地址  +-----------+
+        |           | (未初始化)变量
+        +-----------+
+        |           | 静态变量
+        +-----------+
+        |           | 只读
+        +-----------+ 
+        |           | 常量(不可访问)
+        +-----------+
+        |           | 代码 
+        +-----------+  
+        |           | 堆 
+        +-----------+  
+        |           | 栈  
+        +-----------+  
+        |           | 系统保留 
+ 低地址  +-----------+
+</code></pre>
+
+<h3 id="dumpbin">dumpbin工具</h3>
+<p>段是按照数据的性质而不是按用途来分的，常量与代码就可以合为一段，因为都是只读的。为了更快速地将程序装入内存，可执行文件也会有一定的结构，内部也作了分区，称为节区。VC中有个小工具dumpbin，随便编译一个程序，比如main.exe, 敲入命令：</p>
+
+<pre><code>	dumpbin main.exe
+</code></pre>
+
+<p>会有类似的输出</p>
+
+<pre><code>	Summary
+	        4000 .data
+	        1000 .rdata
+	        5000 .text
+</code></pre>
+
+<p>这些<code>.data .rdata .text</code>是节区的名称。程序定义的一些常量，比如字符串，多数会放到<code>.data</code>里面。当程序被载入时，这些内容会被装到内存的相应位置。要查看节区里面的内容，可以敲入 </p>
+
+<pre><code>	dumpbin main.exe -section:.data -rawdata:bytes &gt; data.txt 
+</code></pre>
+
+<p>若过之前学过Win32汇编，也有类似<code>.data .code .const</code>之类的语句。</p>
+
+<h2 id="section-3">栈</h2>
+<p>介绍一下栈(stack)。stack是先进后出的。比如叠起来的碟子，只可以在最上面放和最方面取。当放上一个碟子，栈就变高。当取下一个碟子，栈会变低。最后放的会最先取出。放碟子，使碟子升高，这动作叫做 push, 取碟子，使碟子降低，这动作叫做 pop。</p>
+
+<p>stack 这结构用得极其频繁，8086 系列的计算机就有相应的机器指令 push, pop 和相应的寄存器 (e)sp，(e)bp 来支持硬件上的栈。</p>
+
+<h3 id="section-4">基址+偏移</h3>
+<p>为得到数据，需要得到它的地址。通常地址都不会直接给出的，会使用基址+偏移的形式。这种形式可以表述为：从某某地方开始，向下或者向上数多少格。所谓基址是一个参考点，偏移是相对参考点而言的。比如 </p>
+
+<ul>
+  <li>基址为1000，偏移为5，就得到1005</li>
+  <li>基址为1000，偏移为-5，就得到995</li>
+</ul>
+
+<p>基址+偏移的形式用得很广泛，平时接触得最多的是数组。</p>
+
+<h3 id="push-pop">push pop</h3>
+<p>寄存器 ebp 指示栈的底端，通常我们叫它栈底寄存器。</p>
+
+<p>寄存器 esp 指示栈的顶端，我们叫它栈顶寄存器。push 指令会使 esp 减少(减少意味着距离 ebp 更远，就是栈顶升高)，跟着在那个地方放数据。pop 指令将 esp 所指的数取出，跟着 esp 增加(增加意味着距离 ebp 近了，就是栈顶降低)。至于升高或降低多少，就看你的数据有多大了。</p>
+
+<p>push eax</p>
+
+<pre><code>     EAX      | .....   |      EAX      | .....   |       EAX      | .....   |
+   12345678H  +---------+    12345678H  +---------+     12345678H  +---------+
+              |  02h    |               |  02h    |                |  02h    |
+              +---------+               +---------+                +---------+
+              |  0Dh    |          ESP-&gt;|  0Dh    |           ESP-&gt;|  78h    |
+              +---------+               +---------+                +---------+
+              |  10h    |               |  10h    |                |  56h    |
+              +---------+               +---------+                +---------+
+              |  F0h    |               |  F0h    |                |  34h    |
+              +---------+               +---------+                +---------+
+              |  06h    |               |  06h    |                |  12h    |
+              +---------+               +---------+                +---------+
+    EBP(ESP)-&gt;|  78h    |          EBP-&gt;|  78h    |           EBP-&gt;|  78h    |
+              +---------+               +---------+                +---------+
+              | ......  |               | ......  |                | ......  |
+              |         |               |         |                |         |
+                 开始                      中间过程                     之后
+</code></pre>
+
+<p>pop ebx</p>
+
+<pre><code>     EBX      | .....   |      EBX      | .....   |       EBX      | .....   |
+   00000000H  +---------+    12345678H  +---------+     12345678H  +---------+
+              |  02h    |               |  02h    |                |  02h    |
+              +---------+               +---------+                +---------+
+         ESP-&gt;|  78h    |          ESP-&gt;|  78h    |                |  78h    |
+              +---------+               +---------+                +---------+
+              |  56h    |               |  56h    |                |  56h    |
+              +---------+               +---------+                +---------+
+              |  34h    |               |  34h    |                |  34h    |
+              +---------+               +---------+                +---------+
+              |  12h    |               |  12h    |                |  12h    |
+              +---------+               +---------+                +---------+
+         EBP-&gt;|  78h    |          EBP-&gt;|  78h    |      EBP(ESP)-&gt;|  78h    |
+              +---------+               +---------+                +---------+
+              | ......  |               | ......  |                | ......  |
+              |         |               |         |                |         |
+                 开始                      中间过程                     之后
+</code></pre>
+
+<h2 id="section-5">注</h2>
+<ul>
+  <li>写程序时用的地址只是线性地址，从线性地址到物理地址还有个令人抓狂的复杂过程。</li>
+  <li>想了解多点转型符，可以参考 More Effective C++ 条款 2。</li>
+</ul>
+
+<p><a href="/2007/07/09/cpp-const-3.html">下接变量与常量(3)</a></p>
+
+
+  </section>
+  
+</article>
+
+        </div>
+        <footer>
+          <div>
+            
+            &copy; 2006 ~ 2014 HJC | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | <a href="https://github.com/hjcapple/hjcapple.github.com" title="fork me">fork me</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+
+      <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+      <script >hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

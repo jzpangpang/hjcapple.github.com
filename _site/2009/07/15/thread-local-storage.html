@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="HJC" />
+    
+    <title>线程局部存储TLS</title>
+    
+    <link href="/atom.xml" rel="alternate" title="HJC Blog" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/default.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="HJC Blog" class="" href="/">HJC Blog</a></h1>
+          </div>
+          <nav>
+            
+            <span><a title="文章" href="/index.html">文章</a></span>
+            
+            <span><a title="我" href="/about.html">我</a></span>
+            
+          </nav>
+        </header>
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>线程局部存储TLS </h2>
+  </section>
+
+  <section class="meta">
+
+  <span class="tags">
+    <p>版权所有，未经许可请勿转载</p>
+  </span>
+
+  <span class="time">
+    <time datetime="2009-07-15">2009-07-15</time>
+  </span>
+  
+  <span class="tags">
+    
+    <a href="/tags.html#windows" title="windows">#windows</a>
+    
+    <a href="/tags.html#C++" title="C++">#C++</a>
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <h2 id="section">线程安全</h2>
+
+<p>堆栈中定义的<strong>局部变量</strong>，对多线程来说是安全的，因为不同的线程各有自己的堆栈。而通常定义的<strong>全局变量</strong>，所有线程都可以作读写访问，这样它就不是线程安全的，为安全就有必要加锁互斥访问。</p>
+
+<p>而何为<strong>线程局部存储</strong>（TLS），简单的说，就是一个变量（通常是指针，指向具体的类型），每个线程都有一个副本，而在程序中可以按照相同的方式来访问，（比如使用相同的变量名，又或者都调用<code>TlsGetValue</code>），既然是都有副本，自然线程中互不影响。</p>
+
+<p>打个比方，就如同一个人，被克隆出三个，其中一个被砍了一刀，其它两人都不会受伤。</p>
+
+<h2 id="tls">定义TLS</h2>
+<p>###隐式定义
+VC编译器可以隐式定义线程局部变量，只要定义的时候加上<code>__declspec (thread)</code>前缀。比如</p>
+
+<pre><code>    __declspec (thread) int iGlobal_1 = 1;
+    __declspec (thread) double iGlobal_2 = 2.0;
+</code></pre>
+
+<p><code>iGlobal_1</code>，<code>iGlobal_2</code>就都有自己的副本。</p>
+
+<h3 id="section-1">显式定义</h3>
+<p>另外windows也提供了几个api, 来显式定义线程局部变量。这几个API为</p>
+
+<ul>
+  <li>TlsAlloc</li>
+  <li>TlsFree</li>
+  <li>TlsSetValue</li>
+  <li>TlsGetValue</li>
+</ul>
+
+<p>用法自己查查。</p>
+
+<p>好，说了TLS的用法，可以入正题。来说说它的实现。</p>
+
+<h2 id="tls-1">显式TLS实现</h2>
+<p>操作系统会使用一个结构来描述线程，这结构通常称为<strong>TEB</strong>（线程环境块，Thread Environment Block）。每个线程有一个对应的TEB，系统维护一个指针值指向当前线程的TEB。切换线程的时候就改变这个指针值。这样需要查找线程相关的信息的时候，可以统一从这个指针值找起。</p>
+
+<p>在windows中，这个线程指针值放在fs寄存器。</p>
+
+<p>TEB的结构里面存放什么了，更具体可以查资料。这里我们只分析其中的一项，<code>_tls_array</code>。</p>
+
+<h3 id="tlsarray">_tls_array</h3>
+<p>TEB结构中，有个指针指向线程TLS数组，称为<code>_tls_array</code>，利用这个数组指针可以管理线程相关的局部变量。</p>
+
+<p>windows系统中，<strong><code>_tls_array_</code>指针在处于TEB偏移0x2h的地方，结合上面说的fs寄存器指向当前TEB</strong>。汇编代码</p>
+
+<pre><code>	mov ecx, dowrd ptr fs:[2ch]
+</code></pre>
+
+<p>其实就是取当前线程的<code>_tls_array</code>，放在ecx寄存器中。</p>
+
+<h3 id="section-2">索引</h3>
+<p>现在，我们在不同的线程中已经可以取得各自的<code>_tls_array</code>，要访问数组的元素，还差索引。回头再看看Windows API中TLS的相关函数，含义就很明显了。</p>
+
+<ul>
+  <li><code>TlsAlloc</code>，是说，请为我分配一个索引号，表示相应的数组项已被使用。</li>
+  <li><code>TlsFree</code>，就是释放索引号，表示相应的数组项可以被再次使用。</li>
+  <li><code>TlsSetValue</code>，就是拿个索引号，向相应的数组项设值。</li>
+  <li><code>TlsGetValue</code>，就是拿个索引，取出向相应的数组项的值。</li>
+</ul>
+
+<h3 id="section-3">同一个索引号，不同的数组</h3>
+<p>好好想想，为什么我有个相同索引号，在不同的线程中调用<code>TlsGetValue</code>，取出来的值会不同呢？因为数组的起始指针已经变了。线程切换引起了<code>_tls_array</code>数组的切换, 因此取值可以不同。</p>
+
+<p><strong>这样用TlsAlloc分配了一个索引号，所有线程中_tls_array的索引号对应的元素都已经归你管理，并非只是当前线程。* 再次强调，分配出一个索引，所有线程的_tls_array数组中的索引对应项都已经被分配，有5个线程，你可以管理的已经有5个格子，并非只是当前线程的一个格子。</strong></p>
+
+<p>索引号是一样的，可以用相同的方式来使用这些数组的小格子。比如你拿了个索引号为3，在所有线程你统一在索引号为3的格子放字符串，就算线程怎么切换，你总可以再次取出字符串，并且每个线程的字符串都各自不同。</p>
+
+<p>现在你已经有小格子了，可以往里面放东西了，放什么东西你可以自己确定，你可以放指针，或者放整数，或者放字符。因为是自己放的，自己可以知道意思，取出来对你就是有用的。</p>
+
+<h2 id="section-4">插入题外话</h2>
+<p>###基址+偏移
+* 在计算机中反反复复都会出现 基址+偏移的模式。基址不变，偏移变，取的值不同；基址变，偏移不变，取的值也不同。这看起来很简单，但很可能没有意识到这点。</p>
+
+<h3 id="section-5">内存放什么</h3>
+<ul>
+  <li>另一个很简单但又很容易忽略的问题，内存中放的究竟是什么？数字？可以说是，但更准确的是放状态，只不过这状态可以用<em>数字来编码</em>（任何东西都可以用数字来编码，只要你懂得解码的方式，这串数字对你就是有意义的）。 2bit, 可以表示4个状态，4bit可以表示16个状态，32bit可以表示4G个状态。</li>
+</ul>
+
+<p>上面其实已经说完了显式TLS分配，也就是调用TlsAlloc等方式。那隐式的TLS分配，又是怎么实现的呢?</p>
+
+<h2 id="tls-2">隐式TLS实现分析</h2>
+<p>###.tls段
+在代码中第一次调用<code>TlsAlloc</code>, 检查返回值，多数会发现返回1。为什么是1，而不是0呢? 因为0已经被使用了，谁在使用? 编译器。
+比如你定义</p>
+
+<pre><code>    __declspec (thread) int iGlobal_1 = 1;
+    __declspec (thread) double iGlobal_2 = 2.0; 时候，其实已经生成了一个段.tls，这个段中有这两个数据，保持下来放在执行文件中。当程序运行，每个线程会将.tls复制一份。线程`_tls_array`的0索引号被占据，对应的格子放着指向这份.tls数据的指针。上面的语句，你可以想象成编译器自动定义了一个结构
+
+	struct TLS_Data
+	{
+	    int iGlobal_1;
+	    double iGlobal_2;edx
+	};
+</code></pre>
+
+<p>每个线程运行时，生成出这个结构，结构指针被设置到线程各自的<code>_tls_array</code>，0索引对应的位置。可以取得线程各自的<code>TLS_Data</code>结构，以相同的方式访问结构中的变量。</p>
+
+<h3 id="section-6">汇编分析</h3>
+<p>关闭优化，看看代码</p>
+
+<pre><code>    __declspec (thread) int iGlobal = 1;
+    
+    int main()
+    {
+        int i = iGlobal;
+        return 0;
+    }
+</code></pre>
+
+<p>的汇编代码输出。</p>
+
+<pre><code>	// 将索引放在eax中，通常为0
+	mov         eax,[__tls_index]      
+	
+	// 将线程对应的_tls_array指针放在ecx中      
+	mov         ecx,dword ptr fs:[2Ch]       
+	
+	// 每个格有4byte, 取出_tls_array数组元素，放在edx中。
+	// 这数组元素放着的是我们假象的TLS_Data结构指针
+	mov         edx,dword ptr [ecx+eax*4]
+	
+	 // 指针加上变量在结构中的偏移，取得iGlobal变量值
+	mov         eax,dword ptr [edx+104h]   
+	
+	// 将iGlobal变量值放在栈变量，也就是i中
+	mov         dword ptr [ebp-4],eax       
+</code></pre>
+
+<p>注意，<code>iGlobal</code>的偏移并不是0，因为已经有些变量定义了。比如线程各自的<code>errno</code>变量，<code>strtok</code>函数用的变量等等。</p>
+
+<p>可以这样说，编译器拿出<code>_tls_array</code>的一个格子，自己管理，又再实现出另一种风格的TLS。</p>
+
+<p>我们也可以自己用TlsAlloc取得一个索引，跟着生成另一个子数组，子数组指针放在<code>_tls_array</code>元素中。真正的数据指针放在子数组中。这样，我们就可以根据自己的需要来实现自己的线程局部存储。而又不占用多个<code>_tls_array</code>数组的索引。</p>
+
+<h2 id="section-7">其它讨论</h2>
+<p>再来讨论一下<code>_tls_array</code>数组的索引的分配跟释放。一定要有某种方式来标记着那个索引被分配了，那个索引还可以使用。</p>
+
+<p>如果<code>_tls_array</code>一定要放指针，那我们可以将没有分配的索引元素设置为<code>NULL</code>, 已分配的非<code>NULL</code>，从前到后检查数值，取第一个<code>NULL</code>元素索引分配出去。</p>
+
+<p>但因为数组不一定放指针，也可以放整数，整数没有所谓的无效值，就不能用这种方式。你可以创建一个同样大小的<code>bool</code>数组作标记，也可以采用位判断方式来替代<code>bool</code>数组。</p>
+
+<p>如果有需要，还可以定义自己的结构作标记用。但一定要有种方式来区别分配的索引号跟没有分配的索引号。</p>
+
+
+  </section>
+  
+  <div class="divider">
+    <span>
+    
+    <a href="/2009/05/09/about-program.html"><i class="fa fa-chevron-left"></i></a>
+    
+    </span>
+    <!-- BEGIN comment icon
+    <span><a href="javascript:leave_comment();" id="leave_comment_link"><i class="fa fa-comment-o"></i></a></span>
+    <span><a href="javascript:collapse_comment();" id="collapse_comment_link" style="display:none;"><i class="fa fa-chevron-up"></i></a></span>
+      END comment icon -->
+
+    <span>
+    
+    <a href="/2009/07/16/lazy-run-example.html"><i class="fa fa-chevron-right"></i></a>
+    
+    </span>
+  </div>
+
+  
+</article>
+
+        </div>
+        <footer>
+          <div>
+            
+            &copy; 2006 ~ 2014 HJC | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | <a href="https://github.com/hjcapple/hjcapple.github.com" title="fork me">fork me</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+
+      <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+      <script >hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

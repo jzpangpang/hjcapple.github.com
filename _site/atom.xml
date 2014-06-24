@@ -1,0 +1,1643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>HJC Blog</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href=""/>
+ <updated>2014-06-24T20:17:32+08:00</updated>
+ <id></id>
+ <author>
+   <name>HJC</name>
+ </author>
+
+ 
+ <entry>
+   <title>贝塞尔曲线</title>
+   <link href="/2014/06/24/Bezier.html"/>
+   <updated>2014-06-24T00:00:00+08:00</updated>
+   <id>/2014/06/24/Bezier</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;公式&lt;/h2&gt;
+&lt;p&gt;参数方程 t 在 0 - t 之间变化&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;1阶&lt;/h3&gt;
+&lt;p&gt;B(t) = (1 - t) * P0 + (t) * P1&lt;/p&gt;
+
+&lt;p&gt;(1 - t) + t&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;2阶&lt;/h3&gt;
+&lt;p&gt;B(t) = (1 - t)^2 * P0 + 2t(1 - t)P1 + t ^ 2 * P2&lt;/p&gt;
+
+&lt;p&gt;[(1 - t) + t] ^ 2 = (1 - t) ^ 2 + 2 * t (1 - t)&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;3阶&lt;/h3&gt;
+&lt;p&gt;B(t) = (1 - t)^3 * P0 + 3t(1 - t)^2 P1 + 3 t ^ 2 ( 1 - t) * P2 + t ^ 3 * P3&lt;/p&gt;
+
+&lt;p&gt;[(1 - t) + t] ^ 3 = (1 - t)^3 + 3(1 - t)^2 * t + 2 (1 - t) * t ^ 2 + t ^ 3&lt;/p&gt;
+
+&lt;p&gt;4 阶，5 阶，6 阶依次类推。&lt;/p&gt;
+
+&lt;p&gt;杨辉三角&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		  1
+		 1 1
+	   1  2  1
+     1  3  3  1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;a^2 + b^2 = c^2&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; 
+e^x = \sum\_{n=0}^\infty \frac{x^n}{n!} = \lim\_{n\rightarrow\infty} (1+x/n)^n 
+&lt;/script&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>开发的工具和库列表</title>
+   <link href="/2014/04/06/tools-libs.html"/>
+   <updated>2014-04-06T00:00:00+08:00</updated>
+   <id>/2014/04/06/tools-libs</id>
+   <content type="html">&lt;p&gt;记录下一些开源软件，代码的使用。方便自己以后查找。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;工具&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;名称&lt;/td&gt;
+      &lt;td&gt;说明&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;:————–&lt;/td&gt;
+      &lt;td&gt;——–&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/CocoaPods/CocoaPods&quot;&gt;CocoaPods&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;管理iOS项目中第三方开源代码。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/facebook/Tweaks&quot;&gt;facebook/Tweaks&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;微调iOS动画参数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;http://revealapp.com/&quot;&gt;Reveal&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;查看iOS应用的UI层次结构。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;http://try.crashlytics.com&quot;&gt;Crashlytics&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;收集程序的崩溃信息。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/facebook/chisel&quot;&gt;facebook/chisel&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;LLDB 的增强工具。用于辅助调试 iOS app。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;源码&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;名称&lt;/td&gt;
+      &lt;td&gt;说明&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;:————–&lt;/td&gt;
+      &lt;td&gt;——–&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/ReactiveCocoa/ReactiveCocoa&quot;&gt;ReactiveCocoa&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;函数式，响应式编程框架&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/zwaldowski/BlocksKit&quot;&gt;BlocksKit&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;让一些iOS基础类，更好地支持Block语法。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/cloudkite/Masonry&quot;&gt;Masonry&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;定义了自己的DSL。大大简化iOS/Mac中，AutoLayout的写法。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/cloudkite/Classy&quot;&gt;Classy&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;使用类似css的方式，去配置UIView界面。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/mikeash/MAObjCRuntime&quot;&gt;MAObjCRuntime&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;使用object-c语言封装 /usr/include/objc 头文件的函数。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/CocoaLumberjack/CocoaLumberjack&quot;&gt;CocoaLumberjack&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;一个 Mac 和 iOS 可用的日志库&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/lxcid/LXReorderableCollectionViewFlowLayout&quot;&gt;LXReorderableCollection&lt;br /&gt;ViewFlowLayout&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;扩展 UICollectionViewFlowLayout，&lt;br /&gt;支持类似 iBooks, Flipboard 那样的书架拖动效果。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/facebook/Shimmer&quot;&gt;facebook/Shimmer&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;添加类似Facebook-Paper中，那种波光闪动的效果。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/facebook/KVOController&quot;&gt;facebook/KVOController&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;用于 key-value 编程&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;常用命令&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;命令&lt;/td&gt;
+      &lt;td&gt;说明&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;:————–&lt;/td&gt;
+      &lt;td&gt;——–&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;qmake -spec macx-xcode&lt;/td&gt;
+      &lt;td&gt;从 qt 配置文件，生成 xcode工程&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;stars:&amp;gt;1&lt;/td&gt;
+      &lt;td&gt;在 github 中 搜索有星星的项目，之后可以按照星星多少来排序&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;mac-&quot;&gt;Mac 系统常用快捷键&lt;/h2&gt;
+&lt;p&gt;| 快捷键           | 说明
+|:————–		|——–
+| Command + W | 关闭窗口
+| Command + Q | 关闭程序
+| Command + Space | 切换输入法
+| Command + Control | Spotlight
+| Command + Tab | 切换程序
+| Command + S | 保存
+| Command + F | 搜索
+| Command + Option + F | 替换&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>微博整理(2013年)</title>
+   <link href="/2014/03/23/weibo-2013.html"/>
+   <updated>2014-03-23T00:00:00+08:00</updated>
+   <id>/2014/03/23/weibo-2013</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;2013年1月&lt;/h2&gt;
+&lt;p&gt;###2013-1-1 
+* 一大早被侄儿吵醒。他老是在重复再重复：太阳下山的时候，小兔仔回家啦。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2013-1-2&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;放完假回来，发现厅里掉了两个面，有个还被咬了一小口。应该是有老鼠。就将剩下的面饼放回冰箱。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;2013年2月&lt;/h2&gt;
+&lt;p&gt;###2013-2-5 
+* 早上下过雨，雨停路面还湿。骑单车上班，一段路后，发觉后面衣服头发都是泥水。因为车子无挡泥板。就折回去洗头换衣服。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;2013年3月&lt;/h2&gt;
+&lt;p&gt;###2013-3-9
+* 我想玩个小游戏，但无mac版本。就在mac上装了个虚拟机来跑windows。跟着又不知道怎么将虚拟机里面的文件弄出来。折腾了很久。最终注册了另一个QQ帐号，一边登陆一个，自己发送文件给自己。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2013-3-16&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;经常听人使用的这样的句式，如果……, 就……。我想……，不过……。例句，如果我当时这样做了，就不会沦落到这种地步。我想学XX，不过晚上回来就无时间了。我想和他/她/它/公司断绝关系，不过既然都这样久了，就顺便吧。这些句子似乎有道理，其实更多在懊悔，找借口，迷惘，将就。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;2013-3-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;广州到桂林，搭火车要12个半钟。坐硬座，熬到凌晨2点多，很多人都下车了，一个人占3个座位，终于可以舒服睡一觉。醒来就到桂林了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;网上查到个叫「花满楼」的青年旅店，说是就在火车站对面，就在附近兜兜转转，找不着，问几人，说不知道，买了个地图，还是找不着。之后在路边吃个汤粉，问老板，居然知道，就在粉店附近一个很小的小巷拐进去。大隐隐于市，小旅店就藏着住宅楼中。刚进去，就开始下雨了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;旅店挺便宜，单人单间单床，一天只要60元。跟人合住，租个床位更便宜。但单间里面真的有且只有一个床。准确点说，连床都没有，只有个床垫放着木地板上。每楼洗手间，洗澡房是公用的，也有个公用阳台来晾衣服。楼下有个休息大厅，大厅有wifi，有椅桌，有两台公用电脑，一个桌球桌。我先住两天。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;睡醒从旅店走路去象鼻山，门票75，真坑，里面无什么好看的，就那个山，水也不清。一会就出来了，走回去，对着地图也了迷路。拐进一条小巷，见到个漂亮的小女孩在学写毛笔字。路边买了个煎得硬硬的粽子，旅店附近吃了个剑骨鱼，都不错。今晚下去看书上网，不出去了。
+&lt;img src=&quot;/media/files/weibo/IMG_0017.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2013-3-20&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨晚旅店无线路由坏了，一直断网。再出去走了走。桂林也就一小城市，而城市都差不多。有点特色的是较多河流横过市区，也就有不少桥。到处都是米粉店，还有一列列的啤酒鱼大排档。公交车有双层的。明早坐竹筏沿漓江去阳朔。
+&lt;img src=&quot;/media/files/weibo/IMG_0025.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;2013-3-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今早去漂漓江，旅游宣传是漓江精华竹筏漂。杨堤是个依山靠水的小村子，远看漂亮，近看残破，在那里上竹筏。竹筏仅仅是宣传说法，其实竹筏无竹，有马达，底下似乎是充气的塑胶，塑胶上铺木板，木板上两个长椅，共坐四人，船夫在后面。一路无话，船在江中游，青山两岸走。返航开快，马达声很吵。
+&lt;img src=&quot;/media/files/weibo/IMG_0048.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;到某个地方，船父掏出个桂林烟的烟盒，让我们对着烟盒的图来看山水。像是蛮像，只是现实中的山水迷着层雾气，感觉山不够青，水不够清。漂之后搭回旅游巴士去阳朔，到站走路经过西街，找到个「东篱客栈」，名称取自「采菊东篱下，悠然见南山」。房间一天80，有两床位，浪费一个，价钱还算可以。
+&lt;img src=&quot;/media/files/weibo/IMG_0058.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;2013-3-22&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;阳朔西街晚上逛一逛，特别是。每间店有自己的特色，比如有店是卖筷子的，有店卖书签明信片的，有店卖手纺布饰的。夜晚开着灯，每店的灯也不同。我喜欢店不同样式的招牌。西街白天较空闲，晚上很热闹，到处见到外国人。西街的「西」应指西方，也就是「洋人街」的意思。
+&lt;img src=&quot;/media/files/weibo/IMG_0219.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;2013-3-23&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;除了西街，阳朔其它就很一般了。通常来阳朔，是漂漓江，环骑自行车，逛西街。今日就租车绕阳朔骑了一整圈，花钱买罪受啊。吃的最出名的是啤酒鱼，小小的阳朔啤酒鱼店N多间，什么谢三姐啤酒鱼，华大姐啤酒鱼，彭大姐啤酒鱼，覃大姐啤酒鱼，大姐三姐都来做啤酒鱼，二姐做什么去了？
+&lt;img src=&quot;/media/files/weibo/IMG_0241.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;第一天到阳朔，晚上去谢三姐啤酒鱼店吃鱼，点的是竹鱼，价钱死贵，感觉也无桂林小店吃的剑骨鱼好。第二日，就只能吃2块钱的面包当早餐，8块的桂林米粉当午餐，10块的炒饭当晚餐。另有个小吃田螺酿，很好吃，做法是将田螺的螺肉挑出，再将调好味道的猪肉塞到螺壳中，加汤汁煮熟。怕就怕螺壳被重复利用。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;大早从阳朔折回桂林。昨晚网上查过无去桂林到昆明的火车票，直接去火车站看看。第一次去火车站买票，很多人排队，大屏幕红色字符一列列滚动，显示去哪的票剩多少张。排队一阵子，售票窗口关闭了，要重排。那就出来旅行社问有无代售火车票，无火车票但有汽车票，要400，3点半出发。就回青旅上网等着。
+&lt;img src=&quot;/media/files/weibo/IMG_0260.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;2013-3-24&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;第一次坐长途卧铺汽车，躺的位置还无棺材阔。从晚上六点坐到第二天的九点半，终于到了昆明。一下车就感觉有点热。再转公交到火车站，买了今日去丽江的火车票，晚上又要坐7，8个钟了。吃过饭就去找昆明的青旅，先睡上一下午。路过一公园，见树上有个松鼠。
+&lt;img src=&quot;/media/files/weibo/IMG_0269.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;旅行很多时间在坐车，等车。这个时间用来看书上网，还背了本实体书出去，有点小重。旅行时候，kindle，iPad就很有用了。重看「三体」全集，快都看完了。现在睡醒，又在青旅等火车了。昆明旱，青旅中午无水，想洗个澡都不行。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;2013-3-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;坐硬座的火车，一晚醒醒睡睡。一出火车，感觉冷了很多。吃过早餐，去古城找旅店。选了「悠然居」，每天80块。要好好睡一觉，再好好洗个澡，从阳朔出来就无洗过澡了。眼困。
+&lt;img src=&quot;/media/files/weibo/IMG_0280.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今日5点钟去逛束河古镇，到7点半还无逛完，天开始黑了，只能一直问路转出来。到坐公交的地方已经8点半了。回到丽江古城9点左右。不想逛了，只想快点回到客栈。谁知又迷路了，开始下细雨。又一直问路，转来转去，转了差不多一个钟终于回到客栈。两个古城都像大迷宫，巷子很多。
+&lt;img src=&quot;/media/files/weibo/IMG_0290.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;丽江古城和束河古镇都是用石板铺路，很适合步行。一条街会分几个巷，巷子很多，走几步就分叉。问居民。居民会说，向右转，直走，向左拐，再向右转……。走一两个弯位就要再问一次。另外有些居民指路不包括较小的巷子，有些人指路包括小巷子。就算问路，也常常走错。对古城第一印象，就是个大迷宫。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;2013-3-26&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;昨天遇到个旅行的女孩，本来打算今天跟她和她朋友一起去玉龙雪山，后来觉车费门票索道费合起来太贵了。无去成。就一起再去逛束河古镇。之后再去白沙壁画，也无买门票，就在门口看了看。在公路上可以看到雪山，就顺着公路向雪山方向一直行一直行，就这样行了两个多钟头，回来搭公车。丽江的天空很蓝。
+&lt;img src=&quot;/media/files/weibo/IMG_0415.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;丽江的环境空气都被广州好多了，抬头就可以见到真正的蓝天白云。只是很干燥，中午太阳很热，今日晒得面颊有点痛。郊区很多房子也是古代样式的。先用大木头搭好架子，再填石块。束河古镇里面还种有许多柳树，第一次见到柳絮飞起。之后两天哪里都不去，就晒太阳。
+&lt;img src=&quot;/media/files/weibo/IMG_0379.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;2013-3-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天还是报了名，明天去玉龙雪山。车费，门票费，古城维护费要230。另外要去山顶还要索道费，还要租衣服。合起来都要4百多。本来觉得贵不去了。后又觉得都来到这里了，不去看看有点遗憾。我没买东西，就买吃的，也没有说被宰。听客栈老板说，有客人去拉市海骑骑马就被宰了一千多。最坑的是去买药。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;丽江这是很干燥，我整天喝水，嘴唇还是开始干裂了，若有下次，一定要带润唇膏。这儿的女孩大姐很多面颊现高原红。今日无事，就到古城里面。坐在个广场边烤太阳，真是很晒。看那些人围着圈圈跳舞，其实也就边转圈边伸伸手脚。听客栈老板说晚上更热闹，围着篝火。只是我晚上都不出去，一麻烦，二怕迷路。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天在古城行，很多小店都听到同一首歌。记得两句歌词，「就在这一瞬间，才发现，失去了你的容颜 」。回来查了查，原来这歌名就叫，「一瞬间」。跟着下载到iPad里面听，完全无在石板路，小巷，阳光中听到的感觉。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;2013-3-28&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今日太早司机就来接去雪山，买票之后排队上索道。我也是第一次坐索道，看下去有点高，幸好无风，不会晃。雪是化得差不多了，不再是一大片雪，只是一滩滩雪。沿着栈道走上去，越高风越大。空气稀薄，走一下就累，停停走走，陪着个老伯伯一起上道最高处，一个碑，写着「4680，玉龙雪山」。另飘着面红旗。
+&lt;img src=&quot;/media/files/weibo/IMG_0579.JPG&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;下索道后，坐大巴到蓝月谷。有几个湖，听涛湖，蓝月湖，镜潭湖，玉液湖。水都很蓝很清。听导游说，最近雪融，雪水注入湖中，所以特别清。转了一圈，等司机来接了。
+&lt;img src=&quot;/media/files/weibo/IMG_0623.jpg&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-15&quot;&gt;2013-3-30&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;去雪山那次晒伤了，面颊一直痛。加上嘴唇干到开裂。搭火车时候一直喝水也无用。那时很想下下雨。一直出太阳的时候就会想下雨，一直下雨就会想出太阳。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从丽江火车搭了九个钟，早上6点到昆明。到昆明的KFC等时间，到中午12点从昆明搭火车，火车晚点，化了26个钟终于回到广州。这是我搭车最长的一次。一出来就下大雨。回来第一件事是好好洗个澡。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-16&quot;&gt;2013-3-31&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;早上7点半就起床了。早餐鸡蛋炒饭。边吃边看电影「无敌破坏王」，之后下了电影当中的游戏「快手阿修」来玩了两局。之后洗碗洗衣服。跟着将书「浪潮之巅」剩下的章节看完。旅行时候就带了这本实体书和电子书「三体」全集，都看完了。中午煮面，正在吃。天又阴阴的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;下午看完「一代宗师」，晚上再将某些情节重看了一下。很有意境，对白很有味道。「一代宗师」应理解成一个时代的宗师们，并非讲叶问一个，各人在大时代下有各自的选择。电影似乎有点散，一个个的片段，情与义都很含蓄。导演并非单单想拍一个武打片，想着要热热闹闹，只从武打的角度看这片子，会失望的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-17&quot;&gt;2013年4月&lt;/h2&gt;
+&lt;p&gt;###2013-4-2
+* 一直下雨，不能骑单车。放工回到住处差不多八点了，吃过饭都八点半了。昨天买了一袋苹果，吃过晚餐咬一个，起床上班也咬一个。我不会削皮，别人削皮不会断的，我只能一小块一小块，后嫌麻烦直接洗洗算了。水果贵了，快吃不起了。附近的筒骨粉店也升价了，一碗由12块升到了14块，最开始也只是10块。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;静点。该吃饭就吃饭，该睡觉就睡觉，该起床就起床。可以争取就争取，该放下就放下。不用多想。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-18&quot;&gt;2013-4-3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;第一次想到「死」是在小学，一个人在家里玩红白机，无缘无故突然想到，很害怕。就在那同一天，我哥回来后突然问我怕不怕死，血缘的联系有点说不清的。关于「生」，常问的问题是，为什么我不出生在以前，不出生在以后，却刚刚好在现在？关于「死」，就会问，我死了之后会变成什么，怎么才算什么都没有？&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;小的时候，会觉得世界是围着自己转的。见到的就是世界，无见到的就不存在。厅里有个茶壶，在房，见不到，故茶壶不存在。走进厅，茶壶才会在。向前看时，背后可能什么都无。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今早上班真是折腾。起床看天色虽阴暗，但无下雨，路面也干，就骑单车。到了华景开始下雨，就将车折叠起来去坐公交车。等了两趟车，都上不了，看着雨停了，路面还不是十分湿，就将车展开再次骑。到了体育中心，又开始下雨，还很大，只能再次将车折起，打算坐的士。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;第一趟的士截停了，单车放到后厢，后厢门盖不下去，那司机就不让我搭。只能等第二趟。一路上后厢门都无关严，的士上坡的时候有点担心单车会掉下来，幸好。回到楼下搭货梯，有另一个人，他搭到7楼，我要搭到19楼。货梯去到7楼停了，阴差阳错下我就跟着出来了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;跟着在7楼，眼看着货梯上到30楼，再下到-1楼，再回到7楼。这趟载满货物，上不了。再看着上到35楼，再下到-1楼，再回到7楼。这趟可以上了。想想，其实是自己问题。当时在华景下小雨的时候，继续骑，其实是可以在下大雨之前回到公司的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上煮吃面，将剩下的两个鸡蛋也用了，冰箱只放着米，也就关了。用了两个钟看完锤子room的发布会。不作评价。又快要睡觉了。这两天似乎都累。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-19&quot;&gt;2013-4-5&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;整周都感觉很累。躺下来就不想动了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上看了最新的一集「十万个冷笑话」，片尾总说「自挂东南枝」。就查了查。是首古诗词串连的歌曲。似乎很久的了，不过我现在才看到。有些串得挺顺的，如仰天大笑出门去，无人知是荔枝来。夜深忽梦少年事，惟梦闲人不梦君。世上真的什么人也有。聪明人，无聊人，或无聊中的聪明人。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;听着豆瓣FM，洗碗，洗澡，洗衣服，拖地，搞完又是睡觉时候。昨晚睡不好，整天都困死了。换话题凑字数。骗人有两种，一是说假话，二是故意少说一些话。第二种每句话都真，也可以骗人的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-20&quot;&gt;2013-4-6&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;说起骗人，其实无什么事就最好不说假话，因为说多了就不值钱。真正需要就用不了啦。聪明也不太好，就算知道了说谎，也就装装糊涂，拆穿大家都不好。睡觉，明天下午回家去。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;好困但睡不着，爬起来画个水壶，真TMD的丑。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;窝在床上看了个电影「秒速5厘米」，距离，时间会造成心与心的隔阂。喜欢淡淡的东西。电影是，味道也是，大概情感也是。烟火灿烂，终归于平淡。总有细水长流。相信顺其自然，不去勉强，不跟人争什么。只是这样就看起来不够积极。想到「浮夸」的歌词，人潮内愈文静，愈变得不受理睬。难道要凶一点？&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回家很重要的理由是为了喝个靓汤。今晚是白果、淮山、赤小豆煲猪肚。其实也可以广州自己来，只是太懒了。死啦，时不时就来刷微博，似乎中毒了，幸好还未无聊到拍个吃什么的照片再发上来。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-21&quot;&gt;2013-4-7&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;渐行渐远，渐成陌路。到每个地方，都可以交到很好的朋友。读书是，出来工作也是。只是每次到另一个地方了，就很少再跟之前的人联系，也没有纪录下文字照片，感觉就似从未相识过。相处很好的朋友，会多少有点奇怪，每次也就一两个。可以一直不说话一直行，时不时再冒出一两句话，也不会尴尬。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;小时候，我家无玩具，只有一个红色的皮球。那时我和哥关系恶劣，我是见到他倒霉我就开心，他应该也一样。都争着球来玩，开始是规定轮流玩，基本是到钟就赖皮的。后一天，吵到不行了，我们就用菜刀和剪刀将球切开，一人分到半块皮。我哥用来挖了眼口三个洞，做个面具，过一会就扔了。我似乎直接就扔了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;去争某个东西，多数不会有好结果，被争的更倒霉。争个皮球，皮球会被切开；争个花瓶，花瓶会易碎；争某个人，都会不开心。但很多是不可共享的，比如人就不能共享。似乎那时太幼稚了，我不争了，也可以偶然得到那球，大家都好。但很难放下不争，一方面看不惯对方得意的笑，另一方面是不舍得。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我躺下睡觉，盖着被子。我侄子在我身上又踩又跳。侄子说：二叔，你成日训觉嘅！连不到3岁的小孩子都说我总睡觉，无地自容啊。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-22&quot;&gt;2013-4-10&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;早上不愿起床，磨磨蹭蹭出门，坐地铁。旁边3男1女都在低头玩手机，另1男拿着个安卓平板看电影。现在的手机都长成一个德性。随时随地拿手机玩游戏刷微博，说是利用碎片时间，更多情况是将时间切成碎片。切碎的时间效率会降很多。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-23&quot;&gt;2013-4-13&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;在知乎上看到个问题，有哪些道理是你读了不信，直到你亲身经历才相信的？有人回答：不要坐在栏杆上，昨天我身后五米一个40+男从二楼摔下，当场死亡。一滩血一滩脑浆，脖子都断了。跟着QQ上肉子讲不要将灯泡含在嘴里，搜那帖子，笑死我了。又听说灯泡拿不出来是谣言，搞到我都想塞一个试试。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-24&quot;&gt;2013年5月&lt;/h2&gt;
+&lt;p&gt;###2013-5-12
+* 网络故障，报修还无来修，断网两天了。这几天都比较早起床，一直宅着看书，看电影，写程序。到点就打包个木桶饭边吃边看电影，偶尔做做运动。最终将存货的电影看完。有些编程资料也查不到。就带个iPad出来购书中心蹭网上，很多人，原来今天是星期天。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-25&quot;&gt;2013-5-14&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;小时候看连续剧，有些剧情说，无什么菜，只有罐头。就觉得，哇，有罐头还叫无菜。而今晚自己煮饭，就真只有罐头鱼。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-26&quot;&gt;2013-5-15&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;中午下去打包木桶饭，等啊等，眼看一个比我迟来的都吃完走了，饭还没来。就说，怎么还不上，退钱给我算了。他们就说，快啦，再等一下。跟着很快就来了。我越来越无耐心等了，也讨厌看到那些很不专业的。上次去那牛杂店也是，才几个客人，都要弄到自己手忙脚乱的，老在问你点了什么。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-27&quot;&gt;2013-5-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;发现冰箱还有块腊肉和鱼干，中午就自己煮饭。饭熟了才想起无将碟子放到饭里蒸。直接酱油拌饭。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;好大雷雨。关电脑，先不开了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上又煮饭，结果还是忘记将腊肉放到饭里蒸。就用电磁炉放点水来蒸，跟着又忘记了，结果水煮干了，锅发出一股焦味。哎呀。吃饭。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-28&quot;&gt;2013-5-20&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;五一后才过了两周。可能是几乎都宅着，无分周六日，连续着，就感觉很长时间了。 两周内，我只静静地过。对些人，就恍如隔世。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-29&quot;&gt;2013年6月&lt;/h2&gt;
+&lt;p&gt;###2013-6-4
+* 将iPad所有的游戏，微博等都删掉了。还是留有QQ。近来最常用的应用是QQ和闹钟。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-30&quot;&gt;2013-6-13&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;总是去刷微博，刷文章，刷电影。结果，在看当前的时候，就总想着还有很多无看，当前的就草草略过。或者是怕错过什么，也或者太渺小了，就刷个存在感。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-31&quot;&gt;2013-6-14&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;被同事说我眼睛总是红红的，建议去看看医生。昨日去了，是典型的干眼症，对着电脑太多，睡觉也不定时。检查时候要测视力，无眼镜裸眼测，测完医生说我视力很差啊。深度近视又去配眼镜，习惯了模模糊糊的，都不记得清清楚楚是怎样的了。伸个懒腰，买菜煮饭吃。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-32&quot;&gt;2013-6-16&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;回家两天，喝过两次汤。一次眉豆猪骨，一次眉豆鸡脚。每次回来都被我妈查问一下，这个就烦，其它还好。她去市场想买个榴莲，我是不吃榴莲的，无得买，就买了个哈密瓜。现在很少跟妈妈说自己的事，比如无去公司上班了，也不说，那就只好明天清早起床，装着去上班。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;看完了书籍「设计心理学」，是很久之前的书了，感觉还无过时，现在人们还是犯那些错。比如说到设计人员的两大诱惑，1. 塞太多功能；2. 太过注重外观；而忽略了易用性。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-33&quot;&gt;2013-6-23&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;昨日同学聚会，来了一大半，多数人看起来无怎变，就是有些无声无息地结了婚。同宿舍的某人开始掉头发，剃了个光头，我也怕掉头发。跟着吃饭唱K，怎么聚会总是吃饭唱K，都无新意的，我宁愿找个静静的地方聊天。难得相聚，不好先走，就缩在沙发角落看书，跟着就很困，居然睡着了，在这样恶劣的环境下。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;还无够半个钟，又被吵醒，就拉了个相熟的出外面聊天，拿我平日那套理论给他洗脑，哈哈。之后跟大队到了个什么水疗会所，洗了个热水澡，吃了个夜宵，赶紧占个位置睡觉。一觉睡到天亮，发下呆，再洗个澡吃早餐。他们陆续起来，多数说睡不好，太吵，我无语。搭同学的车顺路回来，就此聚会结束。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;静静想想，我似乎不是十分怕死，只是十分怕痛。有段时间报道地震，想象地面震出一条缝，又刚好掉进缝里，那地面再合起来，被压在里面。意外死亡，如坐公交被烧死，走路被撞飞，坐飞机掉下来；自杀的话，割脉，跳楼撞地面那刻，上吊喘不过气；似乎都会很痛。一天又一天，一年又一年，静静等死亡那一刻。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-34&quot;&gt;2013-6-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今天将iPad刷成了iOS7 beta2，现在还有很多bug，还一卡一卡的，文字错位见过几次，一天下来死机重启也有4次了。对比之前版本，我更喜欢iOS7的风格，简洁明亮干净通透。iPad屏幕是个玻璃，玻璃就是玻璃，本来就不应该去模仿其它物品。整体线条文字也变幼，用刀在玻璃上刻画，也会是细细的线。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-35&quot;&gt;2013-6-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;跟个网上认识的做游戏的在QQ上聊天，扯着扯着就谈到宇宙，计算机智能，分形之类。还谈到人生追求，最开始是求穿好吃好，跟着饱暖思淫欲，就会求女人，跟着都满足了，就会自然想些比较虚无的问题。他跟身边人说这些，他们会笑他。但他似乎已不愁钱财了，也似乎比我更极端，时不时就说那种傻逼，灭了他。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;节奏这个东西很微妙，也不清楚是不是叫节奏，找不到另一个词。每人应养成并遵守自己的节奏。简单的说就不要别人做什么就跟着去做什么。看武侠小说，两个高手对战，重要的是势，只要扰乱对方的呼吸，对方节奏就会乱，势就会变弱。【全职猎人】中，小麦跟蚂蚁王下棋，塞住了鼻孔，不让王听到自己呼吸。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-36&quot;&gt;2013-6-28&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看完电影「中国合伙人」。从今日开始，中文的引号都用「」或『』。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-37&quot;&gt;2013-6-30&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;这种看，可以是肉眼，也可以是心眼。肉眼看，就是画些图，写些字；心眼看，就是想象出一个空间，想象空间的人，物在里面动，在里面交谈。关键就是将抽象转成可见的。有点像「记忆宫殿」。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-38&quot;&gt;2013年7月&lt;/h2&gt;
+&lt;p&gt;###2013-7-1
+* 这种天气，早上起床还满满的阳光，下去买两粒电池，就下大雨。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-39&quot;&gt;2013-7-3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨晚就开始头晕晕，今天也是。一直醒醒睡睡，到下午四点钟，实在是太饿了。下楼买吃的，顺便交房租。回来去了商场，买到玉米的水饺，还有鸡蛋，还有些零吃。回来发觉鸡蛋压碎了一个。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-40&quot;&gt;2013-7-6&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上公司部门聚餐，吃海鲜。回来都比较晚了，很饱。看了电影「Warm Bodies」，有行尸，其实却是个爱情片。主角就是不同，别的行尸都穿灰衣服，就他穿红衣服。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今日将纪录片The Genius of Design剩下两集也看完了，跟着写程序。突然觉得电脑电源线和插座放到桌子上面会很乱，越看越不顺眼。就放到地上，还是不顺眼，也容易踢到。想了个办法，用绳子将电源线悬空吊在桌子下面。之后又觉得之前房东无用的东西碍眼，厅也有点脏，就干脆搞清洁了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;扔了些不用的东西，包括房东留下的饮水机和婴儿车，腾出个位置，将冰箱也移到角落。扫地，抹地，到处擦擦，搞搞又两三个钟。看到单车很久无踩了，又出去踩了一圈，顺便买了青菜豆腐，很斋无买肉，回来煮饭。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-41&quot;&gt;2013-7-7&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;深圳有个高中同学过来广州玩，顺便来找找我，居然说我看起来精神了，不过眼睛还是有点红。跟着另一同学给了一小箱荔枝。也没有跟他们去吃饭，这两天都自己煮。晚上看了电影「One Day」。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-42&quot;&gt;2013-7-8&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨晚开始吃荔枝，今日也时不时就吃，最终将整箱荔枝吃完。恐怕会上火呢。回去汇报一下项目进度，又一整周时间。其实工作时间跟在公司差不多，省去上下班时间，就感觉悠闲很多，可以睡到自然醒，慢慢的煮粥当早餐，有时自己煮饭，每天睡中午觉，吃完睡醒就开始写程序。也无分周六日，天天差不多。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-43&quot;&gt;2013-7-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看到个笑话。 狗：主人给我吃的，还那么爱我， 主人一定是神。 猫：主人给我吃的， 还那么爱我， 我一定是神。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-44&quot;&gt;2013-7-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;重看了电影，「V for Vendetta」。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-45&quot;&gt;2013年8月&lt;/h2&gt;
+&lt;p&gt;###2013-8-4 
+* 我昨日踩单车才知道，原来奥体中心就在我住的附近。很大的体育馆，连着个很大的广场。就半个站，走路也可以去到。场地都是开放的。有些人在放风筝，还有个攀岩的。看着一个才五六岁大的小妹妹慢慢攀到最高处。这两天都到那里踩单车。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-46&quot;&gt;2013-8-5&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;半夜风扇坏了，不转了，结果热醒，热到睡不着。就起来将风扇拆开，其实不会修，就看看是不是什么地方卡住，之前有次就是太多尘和头发丝卡住不转。最终还是弄不好，还搞到一手油。困了，哎呀，要买新风扇了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-47&quot;&gt;2013-8-12&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;上周右腰出现个紫红色的块，看起来像撞肿了，又不痛。查了查，应该是皮下出血，也称为「紫癜」。可能是我上上周喝了太多的王老吉，搞到人都虚了。现在紫块都散了。昨天去体育馆，回来爬那个起伏有洞的滑坡，慢慢下来。被个小孩子嚣张，说我胆小鬼，说完，那小孩直接就冲下去。呵呵。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-48&quot;&gt;2013-8-13&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨日很早就起床，跟着慢慢骑单车回公司，快到的时候，车子被碎玻璃划破轮胎。剩一个多站推回公司。到晚上，附近不知道啥地方可以修单车的，就叠起来坐地铁运回去。今早推着车子沿着路找修单车的店，终于找到，补个轮胎3块钱。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-49&quot;&gt;2013-8-17&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今晚十一点多，有个人来敲门，问我是不是在钉钉子，吵着他睡觉。我说没有。当时无想什么，后来觉得那人有点鬼祟，有意无意间看我的客厅，被看到电脑了。我有点怀疑他是小偷，找借口来踩点。跟着睡觉时候有点不放心，就将菜刀放到床底，打气筒也放进房，有事可以用来敲一下。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我太纠结，自己吓自己，昨晚一直睡不安稳。早上起来，就敲隔壁门，女的回应。我问, 昨晚是你们问我是不是在钉钉子吗？她回答不是。跟着我再说，因为我怕是小偷过来踩点的。跟着女的立即说，放心，没事的，你放心好了，我老公还在睡觉，不要吵了。我多心了。不过还是网上找找房子，看看有无合适的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-50&quot;&gt;2013年9月&lt;/h2&gt;
+&lt;p&gt;###2013-9-1
+* 睡了个中午觉，似乎做了个长长的梦，醒来感觉空空的，无什么力气了。还是爬起来去踩踩单车，不然就发霉了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-51&quot;&gt;2013年11月&lt;/h2&gt;
+&lt;p&gt;###2013-11-16
+* 搬家了，可以在地上坐。早上就躺着地下听了挺久的悦读fm，跟着就折腾着怎么将它上面的mp3下载下来。吃过饭，准备再回去旧房搬书过来。那个「猜猜」本来计划是做3个月，谁知做了5个月，今日可以完成了。了结一件事。&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>微博整理(2012年)</title>
+   <link href="/2014/03/23/weibo-2012.html"/>
+   <updated>2014-03-23T00:00:00+08:00</updated>
+   <id>/2014/03/23/weibo-2012</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;2012年1月&lt;/h2&gt;
+&lt;p&gt;###2012-1-1
+* 今日去菜市场买了半边鸡。斩鸡的女人刀功很厉害。左手按着，右手用刀。每回刀落既快又狠，只一会，那半边鸡就被碎尸了。我在一边看着，反而怕她斩到手指。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2012-1-5&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;安卓机很可能会再走低端，到几百块的时候就是个临界点，会突然多上几亿用户，这时做的东西要定位在农村到城市中的某点。在农村看来很潮，而在城市看来又可能很俗。很典型的是超大声的喇叭。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;精英文化更注重体验，可选功能单一而每个功能都做到极致。而山寨文化更倾向功能，不管这功能好不好用，但一定要有。所以山寨机无所不能。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;2012-1-6&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;螃蟹思维：一堆螃蟹在盒子里面，盒子是开口的，但是任何一个螃蟹尝试向上爬的时候，其他的螃蟹就会把它拉下来，不让它爬出去。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;2012-1-10&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;俗话说：三日早起当一工，三年早起吴使穷。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2012-1-17&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;很多人的思维逻辑很奇怪。比如我指控你杀了人，所以你要证明自己无杀人(而不是我去证明你有杀人)，但你却证明不了，因此你就是有罪了。这种逻辑其实很荒谬，但却有人觉得有道理。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;2012-1-18&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;如被冤枉，应不应解释呢？若不解释，会被说：连解释都不敢，那就是默认啦。如去解释，会被说：没做过为什么要解释，解释就是掩饰。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;阿婆：真系乖啦，系度睇书啊。女仔：我只系睇言情小说。阿婆：言情小说都系书啦，睇书好啊，可以识多滴字。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;一个冷笑话。两只北极熊在玩游戏，一只将另一只全身的毛都拨了，无了毛的北极熊讲：好冷啊。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2012-1-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;看完《怦然心动》。电影里外公对男孩说：这世界上有些人浅薄，有些人金玉其外而败絮其中。有天，你会遇到一个彩虹般绚丽的人。当你遇到这个人后，会觉得其他人只是浮云而已。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;放假了，今天不用上班。睡到自然醒。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;2012-1-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;苹果公司昨天发布了个做电子书的程序iBooks Author。我想下来看看，那程序只能跑在Lion系统上面，所以就下载新系统升级。升级之后，电脑反应似乎变慢了。之前的xcode也不能用了，再要重新下载安装。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;最好吃的酥皮面包不是在大酒店，而是在那些有几十年历史的手工老作坊。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;别人一说新年新气象。我就是会想起周星驰的电影《破坏之王》。新年新气象，试下呢个失恋冲喜套餐，靚衫靚鞋靚早餐。回家去，希望下一年有个好的开始。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;2012-1-29&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;连看7部「电锯惊魂」，血腥，但并不恐怖，那些杀人机关挺巧妙的。剧情相互关联，像看连续剧。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;2012年2月&lt;/h2&gt;
+&lt;p&gt;###2012-2-1
+* 新年过后第一日上班，没有做什么事，早上开完会后去吃了一顿，下午去看了电影《碟中谍4》。我近视，坐的位置靠后，其实看不到字幕。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;2012-2-10&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;太好或太差不会有什么烦恼，最烦的是处于中间阶段，不上不下。比如买车买楼，很穷的想都不会想，很有钱的想都不用想。想得最多的是有些钱，又差点钱那批人。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;另外一个例子是恋爱，很喜欢就会去结婚，完全不喜欢了就直接分手，最惨是在中间，不够喜欢又不忍心分手，就会一拖再拖。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;2012-2-20&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看完了电影《那些年，我们一起追的女孩》，读书时的日子是多么的美好。错过了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;2012-2-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;呈沉剪，呈沉包，呈沉糯米叉烧包。老鼠吾食香口胶，要食豆沙包。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;2012-2-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;人生若只如初见，何事秋风悲画扇。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;2012-2-29&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;我哥所在的公司卖过的士打卡机的芯片，今日发觉有些打不了卡。之后发现是芯片程序的一个bug, 今天是闰年的2月29日，程序没有算上这个日子。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-15&quot;&gt;2012年3月&lt;/h2&gt;
+&lt;p&gt;###2012-3-1 
+* 下班后在公司和同事玩了两局UNO，挺好玩的，也可能只是觉得新鲜。要多人玩才好玩。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-16&quot;&gt;2012-3-17&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;克拉克第三定律：任何先进的技术，初看起来就像魔法一样。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-17&quot;&gt;2012-3-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今日搭地铁，前面有个阿伯突然之间唱歌，吓我一大跳。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-18&quot;&gt;2012年4月&lt;/h2&gt;
+&lt;p&gt;###2012-4-12
+* 楼下有间桂林米粉店，那些配料可以随便加。最受欢迎的配料应是酸笋，我今晚去吃，加了三勺，那老板望着我，也不好意思再加。其实配料里面都会放辣椒，加越多就越辣，以前没有这样多辣椒的。老板也应该换个小一点的勺子。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-19&quot;&gt;2012-4-15&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;老家门前种有树，原有两芒果，两龙眼。种时考虑不周，树大些就太密了。妈妈弃车保帅，将一芒果砍了，计划调整一棵龙眼位置。妈妈和我挖一天，成功将树转移。挖时，有个邻居老说应该怎么挖才不伤树根，挺讨厌这光说不做的。之后，不知谁在树干上绑了头牛，踩伤树根，树死了。于是现剩一芒果，一龙眼。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;黄子华有套戏《绝代商娇》，有个情节是某个人去搞废油发电，搞了一阵子觉得无前途，就去搞废品回收。所以和哥哥说话，讲到废油发电意思是指半途而废。另外我们提到挖树行为，是指那种光说不做的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-20&quot;&gt;2012-4-24&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;到高中，我的视力还很好。如今完全不行了，带眼镜又嫌麻烦。万一有天过马路被车撞了，撞不死也看不清车牌，报不了仇。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-21&quot;&gt;2012-4-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;成败论英雄，成了就什么都讲成好的。名人做了蠢事多被当成轶事，我若做了件蠢事就真只是件蠢事。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-22&quot;&gt;2012-4-28&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看完九把刀的「楼下的房客」。该怎么说这小说呢？诡异，黑暗，变态？每个人心中都有个魔鬼，这可能是真的。那段人生尽头的对话也挺有趣。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-23&quot;&gt;2012年5月&lt;/h2&gt;
+&lt;p&gt;###2012-5-2
+* 类似的做法很奇怪。比如开一间帮人创业的创业公司，写一个帮人写程序的程序，读一本教人怎样读书的书。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-24&quot;&gt;2012-5-3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;五一假期，除了睡觉吃饭，就一直在看九把刀的小说，另外翻译「palm之禅」这小册子。九把刀的小说，虽然有点黑暗加邪恶加诡异，但却很好看，觉得小说最重要是好看有趣，而不是什么思想性，通常越有思想就越闷。现在看完楼下的房客，看完都市恐怖病系列，正在看杀手系列。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;常说一命二运三风水。命和运应是两样东西。我理解，以打麻将为例，命好是一开始就拿到一副好牌，运好是卡窿，偏张都频频中。因而，生于富贵人家是命好，有贵人相助应该是运好。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-25&quot;&gt;2012-5-5&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今早很大雨。我无伞，不知道扔在哪里了。就敲隔壁家的门，他似乎很惊讶我敲门，只是他也没有多伞。等到八点半，雨还下，稍微小了点，就路边冒雨打的。只是僧多粥少，打不到的士，幸好公车来了。也不算迟到太多。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-26&quot;&gt;2012-5-8&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;订阅的博客，每天有100多条更新，其实真正值得细读的文章也就一两篇。现在常说资信发达，技术更新。然而绝大多数的信息是不用理会的，表面的技术的确是层出不穷，不过核心技术其实更新很慢。编程方面，如数据结构，编译原理，线性代数，网络通信，十几年前就是这样子。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;每次都是头发比较长才去剪发，因为剪完那几天自己觉得怪怪的，很小的样子。而每次剪发前面都有人，要等好久。再加上头发长短收费是一样的。头发长显得颓废，无精神，不过我也时时都无精神的。妈妈说过我小时候挺精灵的，越大越丑样。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;和比较熟悉的朋友聊天，等他说得很有兴致，很想往下说的时候。故意转移话题，这样很有趣。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从前有个村子，村里有人叫筝，他时时想飞，就绑个大布在身后，迎着风跳下悬崖，结果摔死了。父亲为实现儿子愿望，将其形貌绘于纸上，用竹为骨，以线牵引，村人称之为放「疯筝」。世界需要疯子，尽管时时会摔死。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-27&quot;&gt;2012-5-17&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看到知乎上一问题：Evernote的logo为什么是大象？答：来自美国谚语An elephant never forgets。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-28&quot;&gt;2012-5-18&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;手机从缝隙中掉到床底，手伸不进去，要掀起床板才拿出来，麻烦。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;钥匙忘记在公司了，跑到旧同事家里睡厅。明天再回公司拿。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-29&quot;&gt;2012-5-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;单从文字看，无办法判断某些话是开玩笑的说，还是很生气的说。同样的字句，用不同的语气说出来，意思完全不一样。看来文字聊天，不能乱开玩笑。自己本来无什么，对方就当真了。或者对方无什么，自己就当真了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;朋友和其他三个人合租，四人三房。有个人无回来，就空出个床位。类似集体宿舍的上下床位，我睡下床，朋友在上。每次转身，木板就咯咯响。睡不安稳又不敢乱动，直挺挺的僵尸状。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-30&quot;&gt;2012-5-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天居然不到六点就醒了。不要等到七点多又想睡。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回来时，见个悲催的小伙子被城管扣留衣物，理由当然是沿街摆卖，影响市容。开始是一个城管，小伙子拼命抵抗，后来一堆城管，他就无法抵抗，东西被充公了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;只有得到了，才能真的做到不在乎。比如开得起名贵跑车，就不在乎自己踩个破单车，因为知道自己想要的时候就可以买。但如果自己只能踩个单车，就说跑车不好，自己不在乎，只是酸葡萄心理。有钱人一下子捐掉很多钱，可能只是不在乎，觉得捐掉也无所谓，类似平常人捐掉一箱旧衣服。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-31&quot;&gt;2012-5-22&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今日公司空调有点冷，连打几个喷嚏。一骂二挂三感冒，打一个喷嚏是被某人咒骂，二个是有人记挂，连续几个，应该又感冒了。用「又」字说明经常感冒。春天回暖，夏天闷热，秋天吹风，冬天降温，一年四季小病不断，幸好不用看医生也很快就好，睡几下便无事。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-32&quot;&gt;2012-5-23&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今日早上搭公交车，很挤人。靠站上来一个阿婆，身前挂着个书包，里面应该放着个录音机。她上来后，整个车子都听到粤剧声，播的是「梁山伯与祝英台」。猜想阿婆是早起逛公园，带个录音机路上抽空听粤剧。对比下我们挂个耳塞也太小气了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-33&quot;&gt;2012-5-24&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;一直觉得像人而不是人的死物有些恐怖，特别晚上的时候。比如那些玩具人偶，洋娃娃，观音像，清明烧的纸扎人。有时会乱想，死物做成人的样子，人的灵魂也许就会附到上面，虐待它，它会回来报仇。纸扎人烧的时候要替它取名字，不然先人不好称呼，并开眼。清净法水，日月神光，左眼左光明，右眼右光明。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-34&quot;&gt;2012-5-28&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;大学有段时期，我会听些粤语广播剧。印象中，最喜欢的是《一路顺风》，但情节全忘记了。现在重新找来听。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;双胞胎的父母总喜欢让两个孩子穿相同的衣服，理相同的发型，搞到两个人一模一样。从父母的角度，这样做很有趣，很省事。不知其它人怎想，但假如我是那双胞胎之一，从小到大有个几乎跟我一样的人在身边。想想就觉得讨厌。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-35&quot;&gt;2012-5-31&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;我无交电费，昨晚被停了电。想立即去交，不过电费账号存放在笔记本里面，自己不记得。但又因为停了电，我开不了机。所以就将机拿回公司，取出账号。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-36&quot;&gt;2012年6月&lt;/h2&gt;
+&lt;p&gt;###2012-6-6
+* 看完了「动物庄园」。里面有句话，所有动物一律平等，但有些动物比其它动物更加平等。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-37&quot;&gt;2012-6-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;那时候生活就是这么简单，每样东西只要去发掘什么事最容易做就行了。对火来说容易的事，对木头就未必；对鱼来说容易的事，对鸟就未必；对树根来说容易的事，对树枝就未必。—摘自「当世界年纪还小的时候」。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-38&quot;&gt;2012年12月&lt;/h2&gt;
+&lt;p&gt;###2012-12-1 
+* 想起大学同宿舍有个同学。他总是很晚回来。有时其他三人已经关灯睡觉了。他回来后洗澡，洗完后不断地叫我们其中一人。醒之后问他有啥事。他说：原来你们还未睡啊，那等我吹完头发再睡。=_=。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;大学宿舍另一人。本来很勤快，在电脑送来前一小时还在看书，之后就无见他在宿舍看过书。下床第一件事是开电脑，刷牙洗脸后就可以玩了，节约时间。有段时期玩三国志，先用曹操统一中国，再用刘备统一中国，再用吕布统一中国。有时跟我们一起看电影，看着看着，后面传来呼噜声，原来他坐在椅子上睡着了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;宿舍第三人跟我较熟。和他说话，我用粤语，他用国语。后来学会讲了，就跟我说粤语，跟其他人说国语。他考研，早出晚归，我去凑数，晚出早归。报同一学校不同专业，初试一齐，他找同学借宿舍借饭卡，我跟着蹭睡蹭吃。之后他过了初试，我居然也过了初试。复试不同时间，嫌麻烦就无去考了。而他考上了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;大二上学期末，最有希望拿奖学金，但无拿到。因为我无参加社团和集体活动，无加分。之后就无怎么去上课。但是很怕英语课，怕得不敢不去。最初按高考成绩，英语分到高级班，折磨了我两年。我大概是高级班中最低级的。老师半中半英讲课，我其实听不明白的。提问我，从来只会答sorry, I don’t know。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-39&quot;&gt;2012-12-3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;本来躺在床上睡觉。想起自行车的车锁跟自行车看起来不太协调。越来越觉得不对。终于还是起来将车锁拆掉了。=_=&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上煮面吃，开灯刚想进厨房，有只老鼠窜出来，爬上窗台，应该跑到隔壁了。希望它到了隔壁就不要回来，我这里无东西吃的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-40&quot;&gt;2012-12-4&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨晚查好地图，今日提前半个钟起床，准备骑自行车回公司。兴冲冲将车扛下楼，发觉下雨了，只好又灰溜溜地扛上楼。住九楼，无电梯。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-41&quot;&gt;2012-12-8&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;本来骑车出了汗好点了，吃完东西又头晕晕的，不到9点多就睡觉了。一觉睡到8点，还是不想起来。外面很好天。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;很好天气，到楼顶晒被子。很多人已晒了，绑在楼顶的绳子不够用。下来找到包装绳到上面再绑一条。也有人晒了腊肉，无人可以偷偷拿了他的，还是免了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;骑自行车随便荡。到公园门口，不让车进。到以前住的地方看看，到学校逛了一圈。在个摆街的牛杂档前买吃的，问：要不要加辣。答：要。问：全要了？答：不要。问：全要了？答：不要。那小贩指着地下，说：我是说你，钱掉了。原来我给钱时候掉了五十块，听错了，还以为他问是不是全部的调味品都要加。= =&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-42&quot;&gt;2012-12-9&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;早上去剪头发。剪发师傅说我头发很长，剪你一个等于剪两个人。快剪完，师傅问我要不要两边推上去，显得精神点。我说：哦。跟着真两下子推上去了，两边的头发就无了。我看着很不习惯，说：要不直接剃个光头算了。师傅说：你信我，剃光头真的不好看，你过了两天还不习惯，再找我。我说：哦。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;买了菜煮饭，忘记买米，又要跑下去。刚下楼，忘记带钱了，再跑上来。= =&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-43&quot;&gt;2012-12-16&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;到佛山，搭公交车。上来个阿伯，说：哎呀，今天甘多人，都无位坐了。阿伯肯定无出来广州见识过。上下班，有位站着就算好运了，连跌倒都不够位置。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;之前到个肥婆那里买苹果，怀疑不够称。给她们一个机会，下次到另一个肥婆那里买香蕉，后来发现她偷偷塞了个挑剩的蕉。从此，吸取教训，买菜买水果不到肥的上了年纪的女士那里。可能有点偏见。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;总觉得肥的女人会比较贪小便宜。我妈也肥，也贪小便宜。之前她也去过卖菜，嫌杆称太准，就将吊着称砣的小铁环凿去一小块。谁知还是很准。顾客见铁环被凿过，就怀疑她偷称。最后换了另一把新称。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上重看了「千与千寻」。大学也看过，都忘记剧情了。那时感觉没有现在好看。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-44&quot;&gt;2012-12-24&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上骑单车回来。在个灯位下地扶车等绿灯。有个阿姨闯红灯从对面骑单车过来。这边的灯位有个小斜坡，阿姨冲不上。就连人带车摔到我的车子上面。心痛死我了。跟着我就一直怀疑后轮歪了。回来看看，又不太觉。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;「棋魂」里的话。只有一个天才下不出精彩的棋局。当自己棋艺到达一定水平，才可判断出对手棋艺的高低。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我也真是无聊。到11点，将自行车两个轮子拆下来，又装上。搞到成手车油。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>微博整理(2011年)</title>
+   <link href="/2014/03/22/weibo-2011.html"/>
+   <updated>2014-03-22T00:00:00+08:00</updated>
+   <id>/2014/03/22/weibo-2011</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;2011年6月&lt;/h2&gt;
+&lt;p&gt;###2011-6-6
+* 小孩子哭起来好恐怖. 扯尽喉咙, 呼天抢地, 面红耳赤.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;2011年7月&lt;/h2&gt;
+&lt;p&gt;###2011-7-11
+* 公司买了个足球桌, 似乎装反了, 玩起来不太顺手.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有人05年写贴预测房价会大跌, 分析得有理有据, 现在有人跟贴叫楼主出来谈谈心得体会. 另外ipad刚发布的时候, 也有很多人预测这将会成为苹果的一大失败产品, 也分析得有理有据. 所以说, 预测未来是很有风险的, 如果事后证明预测是错误的, 那么事前说得越有道理, 就显得越可笑.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;2011-7-13&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;刚看完电影“借东西的小人”，很好看啊。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;2011-7-14&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天出地铁的时候，在同一个闸口，我在这边打卡，有个阿婆在对面，可能她也在那边打了卡，都想走过去，都过不去。跟着阿婆说，你怎么在这闸口过，这是入口。我就说这明明是出口。后来我才发觉这闸口两边都可以打卡，既是出口，也是入口。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今晚煲绿豆沙。半碗绿豆，半碗水叫绿豆沙，绿豆少了只能叫糖水。下次绿豆要放多点。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;上周日被雨淋了，今天又被雨淋了。这时节多雨，出门要记得带伞。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2011-7-15&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;无所事事来自漫无目的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;头晕晕的，又病了，大病没有，小病不断。亚健康状态。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;2011-7-17&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;这两天, 没有什么做，有个朋友的博客推荐小说《何以笙箫默》，就找来看看。我之前没有怎么看爱情小说，想不到还是挺好看的。看到一半，还担心会是个悲剧，幸好结局很美好。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;90年代的港片很有港味, 现在这味道没有了.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;熊猫不是猫, 是似猫的熊. 机器人不是人, 是人形的机器.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2011-7-18&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;中午多数在公司点快餐，开始还好，现在越吃越难吃。饭菜还是那样的饭菜，只是吃腻了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;周一总是特别困。早上闹钟响，就关掉闹钟接着睡，结果晚了，一下地铁就跑着回公司，还是迟到了十分钟。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;晚上吃了整袋瓜子, 口喝死了. 装上了QQ for mac的新版本, 可以视频聊天了.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;2011-7-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;早上撘地铁，人多车晃，被一个着高跟鞋的踩了一脚，好痛。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;2011-7-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今早被罚了20远。早上骑自行车到地铁口，在一个路口被交警截住，说这是机动车道，自行车不能骑。他还说已经打手势警告过我了，而我没有看到。要交罚款20，不然就扣自行车。于是我只能认罚了，留下收据做纪念。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;2011-7-22&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;公司的新图书app终于上架了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;2011-7-23&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;懒懒的，窝在床上看了一上午的连续剧。起来煮东西吃。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天将&lt;绝代商娇&gt;全部看完, 开始想睡觉了.&lt;/绝代商娇&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;睡醒了, 准确说是饿醒了. 开始煮通心粉 + 绿豆沙. 这一整天, 我也挺懒的.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;2011-7-24&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨晚煮绿豆沙, 吃不完, 就想到要有个冰箱. 今天就去国美买了个, 美菱BC-86A. 不大, 86L容量, 899元. 冰箱要明天才可送到.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;2011-7-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;冰箱到了, 今晚去了商店, 买了些汽水, 八宝粥, 荔枝之类, 去塞满个冰箱. 不过没有找到喜欢的雪糕.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;2011-7-26&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;很多天灾, 来于人祸.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;2011-7-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;这两天很很热啊, 宿舍没有空调, 只能用风扇吹. 现在冰箱的汽水已经喝了一大半了. 似乎总不够睡, 整天都没有精神, 长期有黑眼圈.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-15&quot;&gt;2011-7-29&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今天傍晚下完雨, 见窗外有彩虹&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-16&quot;&gt;2011-7-30&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;午餐, 用老干妈和白菜煮面. 边吃边看&lt;轻音少女&gt;. 哈哈, 已经发工资啦.&lt;/轻音少女&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;睡了一下午，睡得个人好累。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-17&quot;&gt;2011年8月&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-18&quot;&gt;2011-8-4&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今日终于早起床了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-19&quot;&gt;2011-8-8&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以和妈妈FaceTime了，省了电话费。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果睡得少，又很精神就好了。可惜我睡得多，又很无精神。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;看完了「建国大业」。许多人是以数星星的心态去看，只是那些明星我都不太认识。电影也不难看。战争时期总会冒出许多英雄，或者说英雄时时都有，就等着乱世来临。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;一周努力下，存货无了，多了一地垃圾。昨天热死了，无空调，真想就打开冰箱门来当空调，又舍不得电费。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数着心跳，还活着。不信有鬼神，死了就什么都无了。但还是怕鬼，自然只有夜晚怕。黑暗中看不清，看不清所以怕。现在不敢看鬼片了。洗头时候要闭眼，有次想到上面有个鬼伸个手下来，洗着头不小心就摸到，突然觉得很恐怖，也不知是不是某个鬼片的情节。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我觉得自己不笨，但是极其怕麻烦。事情不杀到，不做不行，就不去做，做事总会些烦心，而真做起事来，我往往也会做得很快并做得很好。我最适合就是就躺着，饭来张口，做个二少爷。大少爷自然是我哥，看起来还算积极，其实比我更懒。我爸也懒。可怜我妈，老太太做不成，还要照顾我们三个大懒人。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我知道自己的缺点，但知道也无用，善善而不能用，恶恶而不能去。绝大数人都知道自己缺点但没有去改。所以绝大多数人都是普通人，包括我自己。小时候都梦想可以改变世界，也仅仅停留在梦想。当我们就躺着报怨不公平的时候，也仅仅停留在报怨。如果单会报怨而没有行动也会成功，就真不公平了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15…….睡不着，数绵羊。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;睡到现在，自然睡，睡得骨头都硬了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-20&quot;&gt;2011-8-18&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;小米手机发布，想买一台。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-21&quot;&gt;2011-8-24&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;高中时候，记得有次问政治老师为什么这题要选这个答案。老师以为答案选A，想想就解释了，似乎挺有道理。再问，但答案是选C的啊。他再想想，说刚才考虑错了，再解释，同样挺有道理。我们易犯一个错误，喜欢由结果去反推原因，这总可以说出道理来的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;哥哥的小孩吃饼干。他是握紧拳头拿饼干的，吃到后面，自然还有一小块在拳头里面。小孩不会松开手指，只会整个拳头往嘴里塞。还真有点怕他将拳头伸到嘴里拿不出来。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-22&quot;&gt;2011-8-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;有时在想，假如我会读心术多好，这样哪一个人喜欢我都可以知道了。但假设真有一个世界，互相可知他人的想法，就一定有人在想，假如我会闭心术多好，这样我讨厌哪个人都无人知道了。最好就是，这种能力个个都不会，只有我会。如果个个都会，不管这能力有多好，都会视为理所当然，没什么了不起。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从高处向下看，街上的车像玩具车，人像蚂蚁。这时就很想会大塞车，因为看起来会壮观一些。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从别处看到，有三件事比较奇妙。1、晚上会听到楼上有珠子落地的声音。2、在做某件事的时候，突然觉得这个场景很熟悉。3、感觉自己正睡觉，在向下沉，又猛地惊醒。这些事情我都试过。另外还试过，刚睡醒时想不起自己在哪里。还有睡得模糊间，很想睁大眼睛或动一下手指，却怎么也动不了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-23&quot;&gt;2011-8-26&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;有一些人，去挤地铁。要上车，会骂车上的人为什么不让开；要下车，会骂下面的人为什么要挤过来。都从自己利益去想，必有冲突，有时谁对谁错根本说不清，只能用武力解决。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-24&quot;&gt;2011-8-27&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;我小学写作文，开头经常是今天天气晴朗，万里无云。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-25&quot;&gt;2011-8-28&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;看来不能让自己太舒服，不然会睡着。特别特别不能躺在床上看书。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;很多想法会在脑中一闪而过，不记下来的话，就再也找不着了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;哥哥说过我，是火柴头性格。一盒火柴，一点就着，想做这个想做那个。火柴很快会烧完，无火了，就无心情再做下去。想想自己确实有点这样。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-26&quot;&gt;2011年9月&lt;/h2&gt;
+&lt;p&gt;###2011-9-6
+* 刚看完「武侠」，最终Boss居然是被雷劈死的，真想不到。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-27&quot;&gt;2011-9-7&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;可能是早上下雨，今天地铁特别多人。排队的人挤成一堆。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-28&quot;&gt;2011-9-12&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;还在家，明天要很早起床回广州。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-29&quot;&gt;2011-9-13&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;昨天的有鸡有鹅有汤却不想吃，现在想吃了又无得吃。若带个烧鹅腿回来就好了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-30&quot;&gt;2011-9-14&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;公司的学汉字软件今天终于全部完成，提交评审了。我和个美工一起做的，前后花了两个多月，拖的有点长，后期什么热情都淡了。希望用户会喜欢。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-31&quot;&gt;2011-9-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;后天要去北京出差，听说会很干很冷。无什么衣服。明天去商场看看。还要多买条裤，现在同一条牛仔裤穿上一星期。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;假若有两事可选，一难一易，应选择难的来做，只要做出来就可以和别人拉开距离。新项目中有个功能，初步设计是实现一个三维地球，可以随意旋转，在上面选城市。开始要学3D编程了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-32&quot;&gt;2011-9-21&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;老大急性肠胃炎进医院了。机票改成1点钟。老大可能去不了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-33&quot;&gt;2011-9-23&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在北京参加这个展会，我们两人带着几张海报就过来了。别人的展台又铺瓷砖又请模特，还有大屏幕电视，对比下我们展台就显得太寒碜了。不过我们还是真有忠实用户的，多数是些爸爸妈妈。一些看过我们软件的也说觉得不错，就是太不会推广了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;去逛鸟巢附近的广场。居然还在那里听到Beyond的歌。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从飞机上面看下来，已经在降落了。大半时候在云的上面，就看到好多云层。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-34&quot;&gt;2011-9-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;明天是展会的最后一天，终于可以回去了。今晚到天安门逛了一下，不过不让进，广场也不让进。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-35&quot;&gt;2011-9-26&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;终于回到广州了，真好。我宿舍应该有只老鼠。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;其实还有很多东西缺乏用户体验，第一次根本就不知如何使用，这并不能说用户笨，只能说设计者想得不周到。比如门，绝大多数的门第一次根本就不知是推还是拉的，我在北京机场的洗手间，推了很久，才最后拉开了那门。而的出租车的门就很好，因为那把手，也会知道这门是拉的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;某些风俗就如一种仪式。哥哥周日时搬到新居。听他说，当时是半夜准时三点出门，爷爷拿着砧板和菜刀走最前，爸爸拿火棒随后，之后是哥哥拿着火盘，接着是嫂嫂抱着拿电筒的乐天仔，妈妈和奶奶走最后。想想那情景，有种薪火相传的感觉，还有点悲壮。爷爷年纪大了，到我搬新居时可能已不能独自走在前面了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我们公司做的东西应该还是不错的，但严重缺乏宣传。之前上架的学汉字新软件，到目前为止，在中国区，教育类排第二，总榜第29。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-36&quot;&gt;2011-9-30&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;又感冒了，头晕晕的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;古人说得好，临渊羡鱼，不如退而结网。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-37&quot;&gt;2011年10月&lt;/h2&gt;
+&lt;p&gt;###2011-10-1
+* 「宝贝学汉字」现排在中国区ipad教育类第一位，中国区总榜21。程序是我写的，美工是公司的另一同事。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-38&quot;&gt;2011-10-4&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;重看”棋魂”，还是那样好看。再等一会，就是iphone5发布了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-39&quot;&gt;2011-10-5&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;苹果发布会结束，新出了iphone 4S。许多人觉得失望，没有亮点。其实机器已经快了，软件更新了，摄像头升级了，只是大家期望放得太高了。想当初ipad2出来时大家也说无亮点。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-40&quot;&gt;2011-10-6&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;乔布斯逝世了！一个传奇人物，为梦想而生。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;生如夏花之绚烂，死若秋叶之静美。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我居然可以三天没有出宿舍，将「棋魂」，「三体」全集，和「于小东讲速写」重看了一遍。明天要去剪头发了，太长盖眼睛了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;每个行业都有些顶尖人物，当其逝去，便成为传奇。如果身在这行业，而对这些人物的事迹毫不关心，很可能是被迫进来而不是真心喜欢这行业的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我们会佩服某些人，是因为他们做到了一些自己想做而没有做到的事。比如坚持梦想，一生不变。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在看「天才在左，疯子在右」，刚开始挺有意思的，看了几篇后，突然觉得有些害怕，还是等白天再看。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;越大越胆小，现在连恐怖点的电影都不看了。大学时看完「午夜凶铃」之后，也曾发过梦，似乎在那口古井旁边兜兜转转。其实有些文字或影片并没有鬼怪，但却让人害怕。敬苍天，亦敬鬼神。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-41&quot;&gt;2011-10-10&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;分三晚看完了「岁月神偷」，前半段有点温馨，后半段有点忧伤。我不太喜欢好人死的剧情，若我编剧，我会让他病好。尽管这样少了些煽情，但会多些欢乐。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;苹果Think Different广告。&amp;lt;iframe height=400 width=480 src=”http://player.youku.com/embed/XMzExMzIxODA0” frameborder=0 allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-42&quot;&gt;2011-10-12&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看了苹果iphone4S中Siri的视频，有点未来的感觉。Siri可以根据前后对话的内容直接分析出说话者的意图，而用户说的句子是随意的，并没有特定的所谓关键词。看来人工智能开始走向生活了。苹果仍然是下一个十年的领跑者。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-43&quot;&gt;2011-10-13&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;总有些人不相信真正的人工智能会实现，他们的观点是，程序是由人写的，每一步都是精确的，由精确的程序又怎么能产生意想不到的智能呢？其实这是个数量的问题，简单确定的东西，数量多于某个临界点，也总会有出乎意料的结果。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;就如人的思维，在最低层次，也只是由一些神经元组合起来的。每个神经元都是简单并且行为是确定的，它们的组合方式也是确定的。我相信智能这种不确定的东西可以从众多确定的东西中产生。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;另外智能的一种特征是有自我意识，也就是自己知道自己存在。那又怎么知道一台人做的机器是真的有自我意识，还是只是看起来有自我意识？这问题基本上无解。同样你也判断不了你身边的人是否真的自己会想，还是装成会想。只要机器看起来像有智能，就当它真的有智能好了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;丹尼斯·里奇去世了(Dennis Ritchie, 1941-2011)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-44&quot;&gt;2011-10-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;约翰·麦卡锡(John McCarthy, 1927-2011)去世了。他1958年，发明Lisp编程语言。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以说编程语言有两座高山，一是Dennis Ritchie发明的C语言，一是John McCarthy发明的Lisp语言。基本上，现在流行的编程语言都受C和Lisp的影响。想不到，两位大师在同一年，相隔不久先后过世。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-45&quot;&gt;2011-10-31&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今天无意中看了lua语言的介绍，再看了一下它的语法，我就知道我会喜欢它了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-46&quot;&gt;2011年11月&lt;/h2&gt;
+&lt;p&gt;###2011-11-1
+* 发了个梦。仿佛是小时候，家里门前。我拿着台ipad在玩，我哥问我拿来玩，我不给，他就拿个玩具枪射我（我哥最近确实买了个玩具枪），我就扔块砖头砸烂他的玩具枪（砸的时候枪已经在地上）。再接着有块砖头飞过来，砸到我后脑（一点也不痛），跟着我倒地不能动，接下来就醒了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-47&quot;&gt;2011-11-2&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;俗话说：一命二运三风水，四积阴德五读书。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-48&quot;&gt;2011-11-3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看到一提问: 陆小凤能否接住小李飞刀？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-49&quot;&gt;2011-11-5&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;从小一起长大的兄弟结婚，收拾东西回家去。正纠结要不要带「乔布斯传」的实体书，有点重。虽然已经有了电子版。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-50&quot;&gt;2011-11-7&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;促织死了，蚂蚁拿他当粮食。乔布斯死了，保健品生产商拿他作宣传。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-51&quot;&gt;2011-11-14&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看完刘德华那部电影「大只佬」。种下善因有善果，种下恶因有恶果。但自己种下的善因，善果并不一定自己来享。别人种下恶因，恶果可能让你自己来受。公道吗？假如众生平等，众生为一体就是公道的。万般带不走，唯有业随身。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-52&quot;&gt;2011-11-19&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;在淘宝上买了kindle 3，昨晚折腾到3点多，注册，设置推送，换字体和字典。单纯看电子书的话，比ipad好多了，不会伤眼。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-53&quot;&gt;2011-11-20&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;连续用了Kindle两天。有个自动推送功能，可以将看到的网页或书籍发送到注册时候的一个指定邮箱，如果kindle连上wifi, 过一会就会接受到。浏览器有插件可以将发送过程自动化，点个按钮就行了。一些长文章，在电脑或ipad上读不下去，总想着玩玩游戏，看看视频。而在kindle上面，可以一直读下去。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-54&quot;&gt;2011-11-23&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;今天坐公交车，后边两个女的一直在说养狗心得。狗病了要打针吃药，热了要给它开空调。我自己小时候还没有这样被照顾过。在我老家养狗是用来守门口的，要大个要恶，像城里那些养不大的宠物狗根本就没有价值。那些宠物小狗对着我吠，我就好想去踢它一脚。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-55&quot;&gt;2011-11-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;看了电脑上看了影片「猩球崛起」。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-56&quot;&gt;2011年12月&lt;/h2&gt;
+&lt;p&gt;###2011-12-1
+* 公司今天又有两人先后要走了，总觉得缺少了点什么。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-57&quot;&gt;2011-12-3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;好冷啊。冷到不愿起床。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-58&quot;&gt;2011-12-22&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;小画板终于完工了，今天上传了。项目严重超期，很多之前要做的功能都砍掉。这画板最大的特色是将绘画每一笔都记录下来，之后整个绘画过程可以播放出来，当然可以继续修改。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-59&quot;&gt;2011-12-25&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;想试试什么都不做，就躲进柜子里呆了大半个钟。平时习惯不觉得的汽车声，听起来很大声。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-60&quot;&gt;2011-12-26&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;重看了2000年的那期对话韩寒。看得出时代在进步。两个专家，一瘦瘦方方，另一胖胖圆圆，加上那群起而攻之的场边观众。当时那些人貌似很有道理的话语，现在听起来多么可笑。已流去十年有多了。&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>编程语言只是种工具?</title>
+   <link href="/2011/06/06/programming-language-tool.html"/>
+   <updated>2011-06-06T00:00:00+08:00</updated>
+   <id>/2011/06/06/programming-language-tool</id>
+   <content type="html">&lt;p&gt;以前，我觉得编程语言并没有好坏之分，只是一种表达工具，关键是事先想好。&lt;/p&gt;
+
+&lt;p&gt;上述的观点很多人都认同，语言之争中，前辈们也会用上述论调平息纠纷。上述观点也并不可以算错，然而我觉得不太完整，也很容易被误解。&lt;/p&gt;
+
+&lt;p&gt;语言确实是种工具，但我们不应该忽略工具的作用。我们想什么，去做什么事会决定使用什么工具，但反过来我们有什么工具也会决定我们怎么想，怎么做事。如果工具没有提供这个功能，你就不会向这方面想，也就不会这样做。比如早期的Basic语言，没有提供递归，你用这语言去写程序，你就不会使用递归算法。如果你只会Basic语言的话，你很可能连递归都没有听说过。一个只会Basic的所谓高手也可以解决很多问题，到了某种时候，那高手很可能就会觉得，Basic已经完全够用了。这时候有人跟他说Basic很差，跟他解释递归的概念，他很可能听不进去。还很有道理的说，编程语言只是表达的工具，你有你的工具，我有我的工具，我去写我的Basic，不跟你废话。&lt;/p&gt;
+
+&lt;p&gt;另外，我们编程的时候，多数不是全部事先想好再写的，而是边写边想，你会发现你写得越多，你就会想得越多。我觉得，软件不是设计出来的，而是进化出来的。从这角度来说，编程语言是有好坏之分的，简单的说，就是越能帮助思考的语言就越好，要灵活，表达力强，少约束。编程语言就如同数学符号。数学符号也是种工具，好的数学符号会帮助使用者思考，更奇妙的是似乎符号本身也会思考。用0123456789这几个阿拉伯数字进行笔算时，你会感到一切顺理成章，似乎数字本身在计算，而不是你在做计算。阿拉伯数字出现之前，用罗马数字做乘法，是很困难的，那个时候，大概你会做乘法，你便是数学家。&lt;/p&gt;
+
+&lt;p&gt;编程语言会引导思考。语言在设计或者演化的时候会提倡某种思考方式。有些语言提倡函数式编程，有些语言提倡面向对象，有些语言提倡结构化编程。如果语言连函数也没有，用goto跳转，那你使用这种语言，就可能还停留在刀耕火种，茹毛饮血的年代。各种编程风格，各种编程语言的出现，才能更好的碰出新花火。不同的场合适用不同的语言，从这角度，语言也的确没有高下之分。语言争论中，争得最大声，也最无理智的，往往是只懂某门语言，局限于某种思维的人。java的说C的不懂设计模式，只会蛮干，C的说Lisp的就会打那些愚蠢的括号，Lisp的笑C++妄想山寨出lamda，C++说java不注重效率。&lt;/p&gt;
+
+&lt;p&gt;编程环境也会影响我们写代码的方式。交互式环境会养成增量开发，自底向上的习惯。IDE自动完成之后，变量，函数名变长了，毕竟打两三个字母，整个函数提示全出来的，没有自动完成，就会倾向于取缩写，短小好记。我怀疑，C的标准库函数名多用缩写，是因为编写标准库的年代，名字取得长了，打字记不住。&lt;/p&gt;
+
+&lt;p&gt;语言确实一种工具，但它可以帮助我们思考，甚至决定了我们的思考方式。所以想不被某种编程思维束缚着，就多去接触下其它语言，了解他们独特的概念。你编程，可以用C，用java，用Lisp，但精通C编程的，往往不是整天只学C的。&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>CoreData 框架的简单解释</title>
+   <link href="/2010/09/28/core-data.html"/>
+   <updated>2010-09-28T00:00:00+08:00</updated>
+   <id>/2010/09/28/core-data</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;概括&lt;/h2&gt;
+&lt;p&gt;并非严格的说, CoreData是对sqlite数据库的一个封装.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;数据库操作流程&lt;/h2&gt;
+&lt;p&gt;sqlite数据库操作的基本流程是, 创建数据库, 再通过定义一些字段来定义表格结构, 可以利用sql语句向表格中插入记录, 删除记录, 修改记录, 表格之间也可以建立联系.&lt;/p&gt;
+
+&lt;p&gt;这个过程出现了, 表格的结构(schema), 所有表格的结构和相互联系构成整个数据库的模型, 数据库存放的方式(可以是文件或者在内存), 数据库操作, sql语句(主要是查询), 表格里面的记录&lt;/p&gt;
+
+&lt;h2 id=&quot;coredata&quot;&gt;数据库表格与CoreData类比&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;表格结构&lt;/th&gt;
+      &lt;th&gt;NSEntityDescription&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据库中所有表格和他们的联系&lt;/td&gt;
+      &lt;td&gt;NSManagedObjectModel&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据库存放方式&lt;/td&gt;
+      &lt;td&gt;NSPersistentStoreCoordinator&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据库操作&lt;/td&gt;
+      &lt;td&gt;NSManagedObjectContext&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查询语句&lt;/td&gt;
+      &lt;td&gt;NSFetchRequest&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;表格的记录&lt;/td&gt;
+      &lt;td&gt;NSManagedObject&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;可能上面的对应关系并非十分严格, 但确实可以帮助理解。&lt;/p&gt;
+
+&lt;p&gt;下面再看看&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;	NSEntityDescription
+	NSManagedObjectModel NSEntityDescription用来定义表格结构, 所以你就可以理解NSManagedObjectModel中的
+
+	setEntities:(NSArray *)entities 函数大概有什么用了 . 通常, 定义model, 是用文件CoreData.xcdatamodel, 可以图形化的操作. 这类似用nib来创建界面. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;观察表格结构&lt;/h2&gt;
+&lt;p&gt;建个工程, 使用coredata, 模拟器运行之后, 程序对应的document目录出现一个CoreData.sqlite. 可以利用sqlite3命令来查看里面的表格结构
+用命令行sqlite3 CoreData.sqlite 进入&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;gt;.tables
+ZEVENT        Z_METADATA    Z_PRIMARYKEY&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;可以看到有表格ZEVENT, 对应的CoreData.xcdatamodel文件有名字叫Event的Entity&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;gt;.schema ZEVENT
+CREATE TABLE ZEVENT ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, ZTIMESTAMP TIMESTAMP );&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;对应的Event中有属性timeStamp, 可以看到, 相应的ZEVENT表格中有字段TIMESTAMP&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;gt; select * from ZEVENT&lt;br /&gt;
+1|1|1|306295807.974966&lt;br /&gt;
+2|1|1|306295810.981875&lt;br /&gt;
+3|1|1|306295811.982537&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这表格有三个记录, 可以用来初始化三个NSManagedObject, 修改了NSManagedObject, save之后也修改了表格记录&lt;/p&gt;
+
+&lt;p&gt;你可以在CoreData.xcdatamodel添加新的entity, 之后用sqlit3命令来查看数据库的变化&lt;/p&gt;
+
+&lt;h2 id=&quot;coredata-1&quot;&gt;CoreData类简单分析&lt;/h2&gt;
+&lt;p&gt;###NSPersistentStoreCoordinator
+这个类的对象通常用NSManagedObjectModel的对象来初始化, 这个类抽象出不同的存放方式, 最经常用的是NSSQLiteStoreType. &lt;/p&gt;
+
+&lt;h3 id=&quot;nsmanagedobjectcontext&quot;&gt;NSManagedObjectContext&lt;/h3&gt;
+&lt;p&gt;这个类的对象又用NSPersistentStoreCoordinator的对象来初始化, 它里面有些方法来添加, 删除NSManagedObject&lt;/p&gt;
+
+&lt;h3 id=&quot;nsfetchrequest&quot;&gt;NSFetchRequest&lt;/h3&gt;
+&lt;p&gt;通常用NSEntityDescription来构造查询, 也就指定查询那个表格, 另外可以指定排序.&lt;/p&gt;
+
+&lt;p&gt;在CoreData的设计中, 下一层有相应的属性指向上一层, 所以NSManagedObject有属性得到NSEntityDescription, NSEntityDescription有属性得到NSManagedObjectModel.&lt;/p&gt;
+
+&lt;h3 id=&quot;nsfetchedresultscontroller&quot;&gt;NSFetchedResultsController&lt;/h3&gt;
+&lt;p&gt;NSFetchedResultsController, 只是又封了一下, 和NSFetchRequest合起来使用, 方便取数据, 另外和NSManagedObjectContext关联, 当数据库发生变化的时候收到通知.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;结束&lt;/h2&gt;
+&lt;p&gt;这文章只初步梳理了一下CoreData各类的关系, 各类的方法还需要一一研究. 文章最开始说CoreData是对sqlite数据库的一个封装, 不是严格的, CoreData不一定用sqlit来实现, 但他们之间确实有种对应关系.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>碎碎念五篇</title>
+   <link href="/2010/03/08/five-nagging.html"/>
+   <updated>2010-03-08T00:00:00+08:00</updated>
+   <id>/2010/03/08/five-nagging</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;折纸(2006-11-04)&lt;/h2&gt;
+&lt;p&gt;小的时候，迷恋过折纸的，第一个会的就是纸鹤，是跟邻居的一个人学的。因为是第一个，到现在还记得折法。小学时一个同学有本折纸的书，不知为什么我没有看到过，好象是他后来转学了还是太小气不借给别人，记不清了。那时候，可能记性好吧，对于折纸这方面还挺聪明的。只要给个实物我，我慢慢打开，记下步骤，再跟着折痕叠回，就学会了。初中的时候，很多人会用一块钱折个心形，夹在校牌里的，心形的折法我也是跟着一个实物学会的。还分成双心和单心的，双心的折起来比较难，完成后也比较小。&lt;/p&gt;
+
+&lt;p&gt;那时候还流行折一种纸飞机，飞起来会转弯的，小学毕业的时候，我们就用没有写完的作业本折了很多，从楼上飞下去，挺好看的，痛苦的是要下楼一个一个捡回来。还有一种袋鼠，折成之后挺象的，也可以站立，口袋里面还有个小袋鼠，挺可爱的。那段时候，女孩子还热衷折幸运星，折很多很多，买个小瓶装起来，市面上也有那种小塑料带子卖，很适合折幸运星的，比用纸折的要好看。也有一种纸折的小老鼠，拉拉尾巴头就会动，不过只有一个人会，那个人很小气，不教别人。&lt;/p&gt;
+
+&lt;p&gt;后来我在书店看到过一本折纸的书，彩色的，纸质很好，我翻了翻，才知道纸鹤是有很多种折法的，有些会扇翅膀，有的是两个甚至四个连成一体，我愿先会的那种是最最简单的了。还有其他的，好象还教你折十二星座，看它的图片，折出来会很精美的。可是那本书太贵了，买了不值得，加之慢慢对折纸没有什么兴趣了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;季节(2006-11-05)&lt;/h2&gt;
+&lt;p&gt;秋天太过干燥了，好难受。想想一年也没有什么好季节的，春天多雨，秋天干燥，夏天热，冬天冷。只是往往春天时候觉得秋天好，秋天觉春天好，冬天怀念夏天的太阳，夏天向往冬天的风。要是有人问一年之中最喜欢哪个季节啊，根据不同的时候肯定有不同的答案。现在，我真的是太太太喜欢春天了，特别是它那时候的雨，要是现在立即下一场雨，该有多好啊！&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;猫(2006-11-08)&lt;/h2&gt;
+&lt;p&gt;以前我养过只猫，不是什么名种。不过我觉得我的猫很可爱，因为是我的。它很会捉老鼠，也不挑吃。没有什么喂它白砂糖拌饭就可以了，反正它吃不惯也会自己去捉老鼠。很好的猫，养差不多两年了，后来再养只狗，那只猫就跑掉不回来了，真的是很可惜。再后来那只狗被车撞死了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;记录(2010.2.26)&lt;/h2&gt;
+&lt;p&gt;这几天天气都有点潮湿, 室内墙上都带有水滴. 晒的衣服越晒越湿, 要用风筒吹干. 地上也是, 鞋子踩几下, 就变得很脏. 穿拖鞋的时候, 不敢走快, 很滑. 干燥的时候嫌干燥, 潮湿的时候嫌潮湿. 今天好像天气有点好转.&lt;/p&gt;
+
+&lt;p&gt;发觉桌面又乱了, 之前整理过. 现在桌面有些花生壳, 喝了的可乐瓶子, 一个还没有洗的饭盒, 拆了的蚊香, 很多一毛二毛, 五角一块的零钱, 吃过的面包袋……看来明天要再整理下了. 电脑显示器蒙尘, 也要擦擦了.&lt;/p&gt;
+
+&lt;p&gt;今天心情不好, 什么都不想做, 无无聊聊又一日. 希望明天是个大晴天. 晚上重看了李小龙的&lt;猛龙过江&gt;, 看腻了飞来飞去的所谓武侠片, 再看这部功夫片, 挺好看的.&lt;/猛龙过江&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;懒惰也会使人累(2010-03-08)&lt;/h2&gt;
+&lt;p&gt;这几日一直觉得很累. 后来突然发觉, 并不是真的做了很多事而导致身体累. 而一点有益事情都没有做的那种精神上的累. 真正做事情的那种累而去休息, 应该是感到很充实的. 什么事都不做也会累, 只是一种逃避, 既然无事干, 那就休息算了, 这种累只会感觉空虚.&lt;/p&gt;
+
+&lt;p&gt;自己是有很多事情要做的, 比如很多书没有看, 也可以去学学素描, 或者音乐, 这是必须的, 但这些事情并非一朝一夕可以见效, 要坚持, 长期是很有用的. 坚持不了就不做了, 就花了很多时间去看看网络小说, 去看动漫, 去看无内容的帖子, 这些虽然偶然可以看, 但花的时间太多, 就会感到很无聊. 大学时候, 我很少玩游戏, 现在似乎和那种整天玩游戏的人没有区别了.&lt;/p&gt;
+
+&lt;p&gt;分析自己, 一是太懒, 已经懒成了一种习惯. 二是太浮躁了, 太急于求成, 所以某一日风风火火做了很多事情, 但却很难坚持下去. &lt;/p&gt;
+
+&lt;p&gt;其实想就容易, 真正坚持就很难. 我接触过的很多人, 都很聪明, 道理可以说一大堆, 字字珠玑, 问题不在于说得多真理, 而是有没有坚持去做. 看来笨些也好, 就不会天天想着找捷径, 而想得多做得少. 我已经知道那些事情有好处, 那些有坏处, 我现在做的其实很简单, 好的就去做, 不好的就不做, 关键天天坚持. 不然再这样下去, 就跟很多我看不起的人一样了, 也会看不起自己。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>信仰</title>
+   <link href="/2009/11/06/faith.html"/>
+   <updated>2009-11-06T00:00:00+08:00</updated>
+   <id>/2009/11/06/faith</id>
+   <content type="html">&lt;p&gt;每个行业都有顶尖的人物。如果身在此行业，对他们的事迹一点也不在意，很有可能是被逼进来，而不是真心喜欢的。自己擅长做某事，而发觉他人更擅长，你会佩服他。但如果你不在乎，就算他做得再好，也毫不在意，因为根本就不是同一类人。&lt;/p&gt;
+
+&lt;p&gt;人应该有自己的信仰，也应该有精神偶像。他们做到你想做而还没有做到的事情，过着你想过而又还没有过上的生活。武侠中会有些大侠，单人独马，仗剑行走天下。今天，只要够本事，也完全可以背着台notebook环游世界。&lt;/p&gt;
+
+&lt;p&gt;我自己一直觉得写程序和武侠是很相似的，可能大多程序员都有个武侠梦。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>迭代，自指</title>
+   <link href="/2009/11/05/iter-self-referential.html"/>
+   <updated>2009-11-05T00:00:00+08:00</updated>
+   <id>/2009/11/05/iter-self-referential</id>
+   <content type="html">&lt;h2 id=&quot;section&quot;&gt;例子&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;迭代系统。x[n] = F(x[n-1])，n趋于无穷，x = F(x),  x为方程F的解。&lt;/li&gt;
+  &lt;li&gt;对角线法则。自然数和有理数一一对应，无理数比自然数“多”&lt;/li&gt;
+  &lt;li&gt;停机问题。&lt;/li&gt;
+  &lt;li&gt;几乎所有东西都可以用数字编码。包括研究数字的数论定理。&lt;/li&gt;
+  &lt;li&gt;用数学来研究数学，用语言来描述语言的语法。&lt;/li&gt;
+  &lt;li&gt;写个C程序打印出这个C程序本身。&lt;/li&gt;
+  &lt;li&gt;DNA双螺旋，既可以是指令，也是数据。&lt;/li&gt;
+  &lt;li&gt;我可以意识到我存在。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;共通之处&lt;/h2&gt;
+&lt;p&gt;觉得很多问题都有共通之处。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;迭代。上一代的输出是下一代的输入。&lt;/li&gt;
+  &lt;li&gt;自指。可以引用自己。&lt;/li&gt;
+  &lt;li&gt;双重意义。既可以被看成指令，也可以被看成数据。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;从很简单的前提出发，利用很简单的规则。&lt;/p&gt;
+
+&lt;p&gt;得出下一代，下一代既可以被理解成要处理的数据，也可以被理解成新的规则。进行下一次迭代。这样可以得到很复杂的东西。简单的重复可以构成复杂，复杂往往也可以化为简单的重复。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;结语&lt;/h2&gt;
+&lt;p&gt;但是不知道怎么用程序去表示，么让程序去处理程序本身，来达到进化?&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

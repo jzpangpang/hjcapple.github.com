@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="HJC" />
+    
+    <title>理解C++ — 类型的意义</title>
+    
+    <link href="/atom.xml" rel="alternate" title="HJC Blog" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/default.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="HJC Blog" class="" href="/">HJC Blog</a></h1>
+          </div>
+          <nav>
+            
+            <span><a title="文章" href="/index.html">文章</a></span>
+            
+            <span><a title="我" href="/about.html">我</a></span>
+            
+          </nav>
+        </header>
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>理解C++ — 类型的意义 </h2>
+  </section>
+
+  <section class="meta">
+
+  <span class="tags">
+    <p>版权所有，未经许可请勿转载</p>
+  </span>
+
+  <span class="time">
+    <time datetime="2007-07-06">2007-07-06</time>
+  </span>
+  
+  <span class="tags">
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <h2 id="section">内存单元</h2>
+<p>内存分为一个一个的基本单元，通常每个基本单元有 8 位，一个基本单元叫做1 Byte(字节)。</p>
+
+<p>两个基本单元之间没有本质上的区别，如同一个个同样大小，同样形状，同样颜色的小箱子。要将基本单元区分开，最直接的方法是将其编号。如同将箱子排成一列，这是 0 号箱，这是 1 号箱，这是 2 号箱…..</p>
+
+<p>内存的基本单元也被编号。这个编号就叫内存地址。计算机要读内存的时候，要先给出个地址，再发出个读信号。同样要写内存的时候，也需要地址，再发出个写信号。</p>
+
+<p>从前面的描述可以知道，内存有两个最最基本的要素</p>
+
+<ul>
+  <li>它的地址(编号)</li>
+  <li>它存放的数据</li>
+</ul>
+
+<p>如同一个个的箱子，编号用来区分哪一个箱子，而箱子里面可放着东西。可以联想指针的概念，指针本质上就是一个内存单元的编号，而这个编号也放在内存。</p>
+
+<h2 id="section-1">类型表明数据大小</h2>
+<p>基本单元可以放 1 Byte的数据，1 Byte 是很少的，我们所需要的数据很多时候 1 个基本单元放不下。1 个单元放不下，就分开几个来放。比如我有个整形数据，需要 4 个字节来放。这个时候就会产生问题，怎么找回我的数据。</p>
+
+<p>可能你会说，用地址嘛，不是有个编号的吗？没有错，是有地址，不过 4 个字节有 4 个地址，你用哪一个?
+最简单的是, 需要的基本单元地址是连续，用第一个地址(也可以用最后一个地址)来表示, 这第一个地址叫做起始地址。</p>
+
+<p>光知道数据的起始就可以找回我宝贵的数据了吗？答案是不行的。比如我有两个数据，一个是 4 字节，一个是 8 字节，存放之后都得到一个起始地址，可惜你怎么知道这个起始地址标明的数据有多少个字节呢？</p>
+
+<p>为找回我的数据，除了要知道起始地址，还需要知道数据有多大，也就是 size。假如我知道了起始地址为 600, 有 8 个字节，我就可以理直气壮地说，从地址为 600 起，后面我 8 个字节都是我的，你们不要乱取。</p>
+
+<p>因此，类型的第一个意义就是表明这数据的大小。知道了类型就知道数据的大小，这大小在 C++ 中可以用sizeof 得到。</p>
+
+<h2 id="section-2">类型指明如何去操作数据</h2>
+<p>类型有很多，C++ 中最简单的类型就有<code>char int double float</code>等，还可以自己来定义。变量，常量都有自己的类型，定义之后就存放在内存，变成 <code>1001010100</code> 之类的二进制数据。int, double，string 最后都变成二进制，那怎么区分呢? 还有数据放在内存，代码也放在内存，怎么区分呢?</p>
+
+<h3 id="section-3">数据本身不可区分</h3>
+<p>答案很奇妙，对于二进制数字(其实不单是二进制)，本身是不可区分的，关键是看你怎么去看待，怎么去处理。</p>
+
+<ul>
+  <li>同样一个二进制数值，你当成整数来处理，它就是整数，当成浮点数来处理它就是浮点数。</li>
+  <li>同样的二进制数值，你执行它时，它就是代码，你将它进行运算时，它就是数据。</li>
+</ul>
+
+<p>也可以说，同样的二进制数值，</p>
+
+<ul>
+  <li>你想将它当成整数，就用整数的方式去处理它，想将它当成浮点数，就用浮点数的方式去处理它。</li>
+  <li>同样的数值，想将它当成代码，就去执行它，想将它当成数据，就进行运算。</li>
+</ul>
+
+<p>概括来说就是，数据本身不可区分，以操作来区分。也可以说数据本身是没有意义，看你想给他什么意义。这是一个很重要的概念，不理解它就很难理解计算机的运行方式。</p>
+
+<p>就我而言，这恐怕是我接触到的最基本的计算机方面的概念了。</p>
+
+<h3 id="section-4">编码</h3>
+<p>这有点涉及到编码，编码本身没有意义，可以区别你要编码的事物就可以了。</p>
+
+<p>比如我有 16 盏台灯，也有 16 台收音机，对台灯和收音机进行编号。对于 9 这个数字，本身没有意义。不过当我说打开第 9 盏台灯，还说打开第 9 台收音机，这个 9 就有意义了。</p>
+
+<p>我们约定好，我用 openLamp 和 openRadio 来表示打开台灯和打开收音机两个操作，发出两条指令 openLamp 9, openRadio 9, 你明白我的意思。</p>
+
+<p>我们再约定好，openLamp 改为“操作 1”，openRadio 改为“操作2”，我说 </p>
+
+<pre><code>	操作1 9
+	操作2 9 你还是知道我的意思。
+</code></pre>
+
+<p>再约定，连操作两字都去掉，就变成</p>
+
+<pre><code>	1 9
+	2 9 同样也知道我的意思。
+</code></pre>
+
+<p>最好约定，将它化成2进制，头两个位表示操作，后4个位表示编号。那么 </p>
+
+<pre><code>	打开第9盏台灯
+	打开第9台收音机 就变成是 
+
+	011001
+	101001
+</code></pre>
+
+<p>将上面的二进制数值看成所谓的代码，你能够解释执行。</p>
+
+<h3 id="section-5">编号</h3>
+<p>整数，浮点数都只不过是个编号，用编号来区分不同的整数，不同的浮点数。当我们说 9 的时候，是没有意义的，不过用 add 来表示整数想加，用 fadd 来表示浮点数相加。</p>
+
+<pre><code>	9 add 10 
+</code></pre>
+
+<p>表示一种操作，意思是将编号为 9 的那个整数和编号为 10 的那个整数进行相加。另外</p>
+
+<pre><code>	 9 fadd 10 
+</code></pre>
+
+<p>也表示一种操作，将编号为 9 的那个浮点数和编号为 10 的浮点数相进行相加。</p>
+
+<p>至于编号为9，为10的整数，编号为9，为10的浮点数到底是什么，就要看你怎么编码了。</p>
+
+<p>有些编码方式确实比其他方式要合理，有效，那就多人使用，当成默认，就成了标准了。现在无符号整数，有符号整数，浮点数如何编码都有自己的标准。</p>
+
+<p>我们可以得到类型的第二个意义。以类型来指示如何操作放在内存的数值。</p>
+
+<h2 id="section-6">类型的意义</h2>
+<p>概括起来，类型的意义有两个</p>
+
+<ul>
+  <li>指明数据的大小，以便正确分配，访问，回收内存。</li>
+  <li>对本质上不可区分的内存数据进行不同的操作。</li>
+</ul>
+
+<p>至于检查语法错误之类，不是类型最基本的。应该说，正因为有这两个意义，才有必要进行类型检查。</p>
+
+<h2 id="section-7">代码例子</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    char chs[] = { 'A', 'B', 'C', 'D'};
+
+    char *pChar = (char*)(&amp;chs);
+    short *pShort = (short*)(&amp;chs);
+    int *pInt = (int*)(&amp;chs);
+    float *pFloat = (float*)(&amp;chs);
+
+    cout&lt;&lt;*pChar&lt;&lt;endl;
+    cout&lt;&lt;*pShort&lt;&lt;endl;
+    cout&lt;&lt;*pInt&lt;&lt;endl;
+    cout&lt;&lt;*pFloat&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre>
+
+<p>比如同样的数据 ‘A’, ‘B’, ‘C’, ‘D’存放之后变成二进制码。将那些数值当成不同的类型，可以得出不同的输出。你也可以用printf。printf里面的<code>%d, %s, %f</code>之类的参数，就是用来指示你想将数据当成什么类型，以便进行不同的输出。</p>
+
+  </section>
+  
+</article>
+
+        </div>
+        <footer>
+          <div>
+            
+            &copy; 2006 ~ 2014 HJC | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | <a href="https://github.com/hjcapple/hjcapple.github.com" title="fork me">fork me</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+
+      <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+      <script >hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

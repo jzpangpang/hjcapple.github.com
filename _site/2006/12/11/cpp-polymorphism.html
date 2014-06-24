@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="HJC" />
+    
+    <title>C++，结合分离的类</title>
+    
+    <link href="/atom.xml" rel="alternate" title="HJC Blog" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/default.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="HJC Blog" class="" href="/">HJC Blog</a></h1>
+          </div>
+          <nav>
+            
+            <span><a title="文章" href="/index.html">文章</a></span>
+            
+            <span><a title="我" href="/about.html">我</a></span>
+            
+          </nav>
+        </header>
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>C++，结合分离的类 </h2>
+  </section>
+
+  <section class="meta">
+
+  <span class="tags">
+    <p>版权所有，未经许可请勿转载</p>
+  </span>
+
+  <span class="time">
+    <time datetime="2006-12-11">2006-12-11</time>
+  </span>
+  
+  <span class="tags">
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <h3 id="section">注</h3>
+<p>这篇文章比较早期的了，有些做法现在看起来不算很好。
+现在我倾向直接使用组合，将不可修改的类当成一个成员变量，当成实现的一部分。而非用适配器来继承。下面的做法还不够直接简单，指针管理方面有些问题。</p>
+
+<h3 id="section-1">*</h3>
+<p>编程的时候，应该将类和函数的实现细节隐藏起来，给用户一个统一的接口。基本上，很多设计模式，很多技巧都是为了达到这个目的。如果可以隐藏细节，给出一个统一的接口，你这个设计多数是好的。</p>
+
+<p>考虑两个类 MouseMessage, KeyMessage, 他们的定义如下：</p>
+
+<h3 id="mousemessage">MouseMessage</h3>
+<pre><code>	class MouseMessage
+	{
+	public:
+	    MouseMessage()                { message = "";  }
+	    MouseMessage(string str)        { message = str; }
+	    void setMessage(const string&amp; str)    { message = str; }
+	    void writeMessage(ostream&amp; out) const;
+	private:
+	    string message;
+	};
+	
+	void MouseMessage::writeMessage(ostream&amp; out) const
+	{
+	    out&lt;&lt;message&lt;&lt;endl;
+	}
+</code></pre>
+
+<h3 id="keymessage">KeyMessage</h3>
+
+<pre><code>	class KeyMessage
+	{
+	public:
+	    KeyMessage()            { message = "";  }
+	    KeyMessage(string str)        { message = str; }
+	    void set(const string&amp; str)    { message = str; }
+	    friend ostream&amp; operator&lt;&lt;(ostream&amp; out, const KeyMessage&amp; keyMsg);
+	private:
+	    string message;
+	};
+	
+	ostream&amp; operator&lt;&lt;(ostream&amp; out, const KeyMessage&amp; keyMsg)
+	{
+	    out&lt;&lt;keyMsg.message&lt;&lt;endl;
+	    return out;
+	}
+</code></pre>
+
+<p>这两个类都完成了设置和打印消息的功能，但他们给出的接口，或者说函数的调用方法不一样。如果这两个类是你自己写的，应该修改接口，使他们函数调用方法一致。</p>
+
+<p>问题就在于，他们是由不同的人写的，你得到的只是编译好的二进制文件，你不可以修改他们的源代码。不过他们有你想要的功能，所以你想利用他们的功能，节省自己重新编写代码的时间。</p>
+
+<p>现在你就有个目的，利用已有的类，并且使自己利用它们的方式一致。你可以这样做，写几个简单的函数：</p>
+
+<pre><code>	inline void set(KeyMessage&amp; keyMsg, const string&amp; str)
+	{
+	    keyMsg.set(str);
+	}
+	
+	inline void set(MouseMessage&amp; mouseMsg, const string&amp; str)
+	{
+	    mouseMsg.setMessage(str);
+	}
+	
+	inline void write(ostream&amp; out, const KeyMessage&amp; keyMsg)
+	{
+	    out&lt;&lt;keyMsg;
+	}
+	
+	inline void write(ostream&amp; out, const MouseMessage&amp; mouseMsg)
+	{
+	    mouseMsg.writeMessage(out);
+	}
+</code></pre>
+
+<p>这个时候，因为函数是重载的，你可以统一的调用方法set，和write。</p>
+
+<pre><code>	MouseMessage msg1("Mouse Move");
+	KeyMessage   msg2("Key Pressed");
+	
+	set(msg1, "Mouse Drag");
+	set(msg2, "Key Up");
+	
+	write(cout, msg1);
+	write(cout, msg2);
+</code></pre>
+
+<p>这样调用起来，没有什么面向对象的感觉。MouseMessage和KeyMessage都是消息，希望可以将他们都放在一个向量或者数组里面，统一遍历。很可惜，这两个类是不一样的，你不可以把他们放在一起。它们也不是在同一个类中派生出来的，所以你也不可以将它们的指针放在一起。</p>
+
+<p>可以使用下面的方法，写一个抽象类，名字就叫做 Message</p>
+
+<pre><code>	class Message
+	{
+	public:
+	    void virtual write(ostream&amp; out) = 0;
+	    void virtual set(const string&amp; str) = 0;
+	};
+</code></pre>
+
+<p>跟着，使用一个适配器</p>
+
+<pre><code>	template &lt;typename T&gt;
+	class MessageAdapter : public Message
+	{
+	public:
+	    MessageAdapter(T* pt)    { ptMsg = pt; }
+	    void virtual write(ostream&amp; out)    { ::write(out, *ptMsg); }
+	    void virtual set(const string&amp; str)    { ::set(*ptMsg, str);    }
+	private:
+	    T* ptMsg;
+	};
+</code></pre>
+
+<p>再写一个创建函数</p>
+
+<pre><code>	template &lt;typename T&gt;
+	Message* newMsg(T&amp; msg)
+	{
+	    return new MessageAdapter&lt;T&gt;(&amp;msg);
+	}
+</code></pre>
+
+<p>现在你可以写出这样的代码了</p>
+
+<pre><code>	MouseMessage msg1("Mouse Move");
+	KeyMessage   msg2("Key Pressed");
+	
+	vecotr&lt;Message*&gt; v;
+	v.push_back(newMsg(msg1));
+	v.push_back(newMsg(msg2));
+	
+	for (int i=0; i&lt;v.size(); i++)
+	{
+	    v[i]-&gt;write(cout);
+	}
+</code></pre>
+
+<p>这是模板、虚函数和函数重载的结合。模板根据你的调用类型，推断出你用的是 MouseMessage 还是KeyMessage, 跟着 new 出一个MessageAdapter。</p>
+
+<p>MessageAdapter 派生自 Message，所以可以用 Message 指针统一调用。根据虚函数的作用，Message指针调用 MessageAdapter 的 write 和 set 方法。因为 MessageAdapter 也是模板类，它也可以推断出你用的是 MouseMessage 还是 KeyMessage，跟着调用了重载的全局函数 write 和 set。</p>
+
+<p>不过这时候，有点不足，你不可以写出这样的代码：</p>
+
+<p>v.push_back(newMsg(MouseMessage(“Mouse Drag”)));
+v[0]-&gt;write(cout);</p>
+
+<p>因为 newMsg 的返回是个指针，MouseMessage(“Mouse Drag”)作为参数只不过是个临时变量，之后就注销了，既然没有对象，v[0]-&gt;write(cout); 就没有意义了。所以你想将 Message放进向量，一定要先定义一个对象。这样太不合理了，你没有理由想用向量存储100个指针，就要定义100个对象，这个是不可以忍受的。所以可以在定义一个函数：</p>
+
+<pre><code>	template &lt;typename T&gt;
+	Message* newMsg(T* ptMsg)
+	{
+	    return new MessageAdapter&lt;T&gt;(ptMsg);
+	}
+</code></pre>
+
+<p>注意，这个函数的参数是个指针。要是你传递的是指针就会调用这个函数，要是你传递的是数值，就会调用先前的那个函数。
+从此之后，你可以写出这样的代码：</p>
+
+<pre><code>	MouseMessage msg1("Mouse Move");
+	KeyMessage   msg2("Key Pressed");
+	
+	vector&lt;Message*&gt; v;
+	v.push_back(newMsg(msg1));
+	v.push_back(newMsg(msg2));
+	
+	v.push_back(newMsg(new MouseMessage("Mouse Dray")));
+	v.push_back(newMsg(new KeyMessage("Key Up")));
+	
+	for (int i=0; i&lt;v.size(); i++)
+	{
+	    v[i]-&gt;write(cout);
+	}
+</code></pre>
+
+<p>无论你传递的是指针，还是传值，都可以了，MouseMessage 和 KeyMessage 也可以用相同的方式调用。</p>
+
+<p>在《面向对象编程导论》 (美)Timothy A.Budd 著 有相似的例子。它给出的例子是出现两个类 Orange 和Apple，抽象类为 Fruit。我改成 Message，也修改了另外一些地方。不过原理是一样的，建议看看。那本书是将很多面向对象语言进行比较的, 有 Java, C++, C#, Smalltalk 等等。</p>
+
+<h2 id="section-2">后来补充</h2>
+<p>上面的代码有些问题，</p>
+
+<ul>
+  <li>vector 里面存储的是指针，如果 msg1 或 msg2 过早的析构了，那么指针就垂悬了；</li>
+  <li>还有一个则是 v.push_back(newMsg(new MouseMessage(“Mouse Dray”))); 这样产生的 Message 不能 delete。</li>
+</ul>
+
+<p>可以将上面的代码，裸指针修改成智能指针。std::shared_ptr来解决释放问题。</p>
+
+
+  </section>
+  
+</article>
+
+        </div>
+        <footer>
+          <div>
+            
+            &copy; 2006 ~ 2014 HJC | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | <a href="https://github.com/hjcapple/hjcapple.github.com" title="fork me">fork me</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+
+      <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+      <script >hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

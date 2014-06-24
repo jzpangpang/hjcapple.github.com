@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="HJC" />
+    
+    <title>正则表达式的简单解说</title>
+    
+    <link href="/atom.xml" rel="alternate" title="HJC Blog" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/default.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="HJC Blog" class="" href="/">HJC Blog</a></h1>
+          </div>
+          <nav>
+            
+            <span><a title="文章" href="/index.html">文章</a></span>
+            
+            <span><a title="我" href="/about.html">我</a></span>
+            
+          </nav>
+        </header>
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>正则表达式的简单解说 </h2>
+  </section>
+
+  <section class="meta">
+
+  <span class="tags">
+    <p>版权所有，未经许可请勿转载</p>
+  </span>
+
+  <span class="time">
+    <time datetime="2007-04-05">2007-04-05</time>
+  </span>
+  
+  <span class="tags">
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>正则表达式（regular expression）描述了一种字符串匹配的规则，在很多地方都有用。比如在编辑器中用来查找和替换字符串。也可以用来抓取网页的图片链接。C++ 的 Boost 库中也有正则表达式的库。</p>
+
+<p>正则表达式的写法很是奇特，初看起来乱糟遭的。在这里我只简单的介绍它的定义和语法。</p>
+
+<p>应该知道集合的概念，我的介绍是从集合开始。</p>
+
+<h2 id="section">定义</h2>
+<p>假如有一个正则表达式 r，如果有一个字符串符合它描述的格式，我们就称字符串匹配了表达式。</p>
+
+<p>所有匹配正则表达式的字符串组成一个集合，记为 L(r).</p>
+
+<p>定义一个集合，里面的元素是单个的字符，比如 {a, b, c, d}，这个集合称为正则表达式的字母表。这个字符集合可以随意定义的，用来判断使用字符是否合法。</p>
+
+<p>基本正则表达式，就是字母表中的单个字符构成的字符串。比如a，b，c，d，还加上一个空字符串，记为σ。这样有</p>
+
+<ul>
+  <li>L(a) = {a}</li>
+  <li>L(b) = {b}</li>
+  <li>L(σ) = {σ}</li>
+</ul>
+
+<p>基本正则表达式是一个合法的正则表达式。</p>
+
+<p>正则表达式有三种基本的运算：选择，连接，重复。一个合法的正则表达式经过有限次的运算，也是一个合法的正则表达式。</p>
+
+<p>上面用了递归定义，初看有点奇怪，其实不难，想通了就很自然了。</p>
+
+<p>类比我们以前学有理式的定义：</p>
+
+<pre><code>	一个字母就是一个合法的有理式，有理式经过有限次的四则运算，也是一个有理式。
+</code></pre>
+
+<p>还有Lisp语言中表的定义：</p>
+
+<pre><code>	一个字串称为原子，一个原子是一个表，表排在一起，也是一个表。
+</code></pre>
+
+<h2 id="section-1">基本运算</h2>
+<p>再来定义正则表达式的基本运算。只有三个。选择，连接，重复。</p>
+
+<ol>
+  <li>
+    <p><strong>选择</strong><br />
+ r 和 s都是正则表达式，选择记为 <strong>r | s</strong>。意思就是说，假如一个字串可以匹配 r 或者可以匹配 s，就一定可以匹配 r | s。再解释一下，L(r)表示所有匹配r的字串的集合，L(s)表示所有匹配s的字串的集合，L(r|s)表示所有匹配r|s的字串的集合。有 L(r|s)=L(r)并L(s)。</p>
+
+    <p>理解正则表达式可以试试用集合的角度。假如</p>
+
+    <pre><code> L(a) = {a}
+ L(b) = {b},  那么
+
+ L(a|b) = {a, b}
+</code></pre>
+  </li>
+  <li>
+    <p><strong>连结</strong><br />
+就是两个正则表达式连在一起，就写成 <strong>rs</strong>。从集合的角度，就是L(rs)=L(r)L(s)。比如 (a|b)c 代表的集合是 {a,b}{c} = {ac, bc}。集合的连接，举个例子，比如 </p>
+
+    <pre><code> {a, b}{c, d} = {ac, ad, bc, bd}
+</code></pre>
+  </li>
+  <li>
+    <p><strong>重复</strong><br />
+将一个正则表达式重复任意次，包括0次，记为<strong>r*</strong>。重复 2 次就是自身连结两次，重复 3 次就是自身连结三次。</p>
+
+    <pre><code> L(a*) = {σ, a, aa, aaa, aaaa, aaaaa, ......} 因为它可以重复任意多次，包括 0 次(重复 0 次就是σ), 这样的话 a, aaa, aaaa 都可以匹配 a* .
+</code></pre>
+  </li>
+</ol>
+
+<p>所有的复杂的正则表达式都是由上面三种运算构成。</p>
+
+<h3 id="section-2">优先级</h3>
+<p>既然有运算，就会牵涉到运算的优先问题，现在规定几个运算合在一起，先算重复运算，再算连结，再算选择。而括号可以改变优先，有括号先算括号里面的。</p>
+
+<h3 id="section-3">表示所有整数</h3>
+<p>现在来看一个简单的例子，用正则表达式来表示所有的整数，可以写成</p>
+
+<pre><code>	(σ|+|-)(0|1|2.....|9)(0|1|2|3....9)*
+</code></pre>
+
+<p>这样看起来太麻烦了。我们再设一个规则，可以给正则表达式取个名字，之后这个名字就代表了这个表达式。上面的式子可以写成</p>
+
+<pre><code>	sign = σ | + | -
+	digit = 0|1|2....|9
+	integer = (sign)(digit)(digit)*
+</code></pre>
+
+<p><code>(digit)(digit)*</code> 保证数字至少要出现一次。</p>
+
+<h2 id="section-4">扩展运算</h2>
+<p>上面定义的三种运算已经可以写出所有的正则表达式了。不过单纯用上面的运算，不是很方便。因此，再定义其他的一些运算，称为正则表达式运算的扩展。不同的语言，不同的场合可能包括不同的扩展，也可能不同的记法。只会讨论一些最常用的。</p>
+
+<p>不过你要知道，所有的扩展运算都可以用选择，连结、重复这三种运算的表达出来, 这三种运算是基本。知道了基本，其他的运算就很容易掌握了。</p>
+
+<h3 id="section-5">重复一次或者多次</h3>
+<p>记为 <strong>r+</strong> 。最基本的重复的运算是可以重复 0 次的，不过 0 次并非是典型的情况，至少要重复一次才是比较常用的。容易知道r+ 等效于 rr*。于是上面的例子也就可以写成</p>
+
+<pre><code>	 (σ|+|-)(0|1|2.....|9)+
+</code></pre>
+
+<h3 id="n">重复n次</h3>
+<p>记为 <strong>r{n}</strong>，比如</p>
+
+<pre><code>	 L(a{2}) = {aa}
+</code></pre>
+
+<h3 id="ij">重复i次到j次</h3>
+<p>记为 <strong>r{i, j}</strong>, 比如</p>
+
+<pre><code>	L(a{1,3}) = {a, aa, aaa}
+</code></pre>
+
+<h3 id="n-1">至少重复n次</h3>
+<p>记为 <strong>r{n, }</strong>，比如</p>
+
+<pre><code>	L(a{3,})={aaa, aaaa, aaaaa,.....}
+</code></pre>
+
+<h3 id="section-6">任意字符</h3>
+<p>记为 <strong>.</strong>(小数点)。这个等效于整个字母表作选择运算。比如一个字串至少要包括一个b，可以写成</p>
+
+<pre><code>	.*b.*
+</code></pre>
+
+<h3 id="section-7">字符范围</h3>
+<p>比如[0-9]，表示可以取 0 到 9 任意一个，等效于</p>
+
+<pre><code>	0|1|2|3....|9
+</code></pre>
+
+<p>经常需要写出一定的字符范围，设想你刚开始定义的字母表按照一定的顺序排列，这个式子就在字母表上划了一个范围。通常我们用的编程语言按照ASCII排列。</p>
+
+<p>另外 [] 还有个用法，[akgs]等效于</p>
+
+<pre><code>	a|k|g|s
+</code></pre>
+
+<p>所有的字母任意抽一个，可以写成 [A-Za-z]。应用上面说的，列出所有的整数可以写成</p>
+
+<pre><code>	[σ+-][0-9]+
+</code></pre>
+
+<h3 id="section-8">不在给定集合中的任意字符</h3>
+<p>这其实是一个取补运算，可以用 ~ 表示。比如 ~(a|b|c) 就是除了a, b, c之外的任意字符。~(σ)就是定义的字母表，等效于 <strong>.</strong>(小数点)。很多时候，这个运算也用^表示，比如[^abc], [^σ]。</p>
+
+<h3 id="section-9">可选的子表达式</h3>
+<p>用 <strong>?</strong> 表示。比如 [ab]? 就等效于[σ a b]，也等效于 <code>[ab]{0,1}</code> 也就是说，可以选择a，可以选择b，也可以都不选择。所以所有的整数可以表示为 </p>
+
+<pre><code>	([-+]?)[0-9]+
+</code></pre>
+
+<h2 id="section-10">总结</h2>
+<p>当然，不同的语言符号可能也不尽不同，还会有另外的规则。C++ 中还要注意一下转义字符。</p>
+
+<p>最先定义的三个运算最为重要，要先掌握。将上面说的运算综合起来，正则表达式可以很灵活，表示很复杂的字符格式。</p>
+
+<p>不过正则表达式也不是所有的字符集合都可以表示出来。比如集合</p>
+
+<pre><code>	S = {b, aba, aabaa, aaabaaa....} = {(a^n)b(a^n) | n != 0}
+</code></pre>
+
+<p>就是前后有相同的 a，中间只有一个 b。就没有办法用正则表达式来统一表示。</p>
+
+<h2 id="section-11">参考</h2>
+<ul>
+  <li>《揭开正则表达式的神秘面纱》</li>
+  <li>《编译原理及实际》(Kenneth C Louden) P23-32 (我只不过将它的意思再写一下)。</li>
+</ul>
+
+
+  </section>
+  
+</article>
+
+        </div>
+        <footer>
+          <div>
+            
+            &copy; 2006 ~ 2014 HJC | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | <a href="https://github.com/hjcapple/hjcapple.github.com" title="fork me">fork me</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+
+      <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+      <script >hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
