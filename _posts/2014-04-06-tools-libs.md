@@ -37,6 +37,8 @@ published: true
 | [LXReorderableCollection<br>ViewFlowLayout] | 扩展 UICollectionViewFlowLayout，<br>支持类似 iBooks, Flipboard 那样的书架拖动效果。
 | [facebook/Shimmer] 		| 添加类似Facebook-Paper中，那种波光闪动的效果。
 | [facebook/KVOController] | 用于 key-value 编程
+| [JASidePanels] | 左右滑动，露出侧边栏
+| [RectangleBinPack] | 二维装箱问题
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
@@ -47,6 +49,8 @@ published: true
 [LXReorderableCollection<br>ViewFlowLayout]: https://github.com/lxcid/LXReorderableCollectionViewFlowLayout
 [facebook/Shimmer]: https://github.com/facebook/Shimmer
 [facebook/KVOController]: https://github.com/facebook/KVOController
+[JASidePanels]: https://github.com/gotosleep/JASidePanels
+[RectangleBinPack]: https://github.com/juj/RectangleBinPack
 
 
 ## 常用命令
