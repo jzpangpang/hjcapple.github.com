@@ -39,6 +39,7 @@ published: true
 | [facebook/KVOController] | 用于 key-value 编程
 | [JASidePanels] | 左右滑动，露出侧边栏
 | [RectangleBinPack] | 二维装箱问题
+| [nanovg] | 轻量级矢量图绘画库
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
@@ -51,6 +52,7 @@ published: true
 [facebook/KVOController]: https://github.com/facebook/KVOController
 [JASidePanels]: https://github.com/gotosleep/JASidePanels
 [RectangleBinPack]: https://github.com/juj/RectangleBinPack
+[nanovg]: https://github.com/memononen/nanovg
 
 
 ## 常用命令
