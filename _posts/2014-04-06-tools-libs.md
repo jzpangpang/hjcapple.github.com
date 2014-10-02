@@ -39,6 +39,7 @@ published: true
 | [facebook/KVOController] | 用于 key-value 编程
 | [JASidePanels] | 左右滑动，露出侧边栏
 | [RectangleBinPack] | 二维装箱问题
+| [MGSwipeTableCell] | TableViewCell左右滑动，露出下面的按钮
 | [nanovg] | 轻量级矢量图绘画库
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
@@ -53,6 +54,7 @@ published: true
 [JASidePanels]: https://github.com/gotosleep/JASidePanels
 [RectangleBinPack]: https://github.com/juj/RectangleBinPack
 [nanovg]: https://github.com/memononen/nanovg
+[MGSwipeTableCell]: https://github.com/MortimerGoro/MGSwipeTableCell
 
 
 ## 常用命令
