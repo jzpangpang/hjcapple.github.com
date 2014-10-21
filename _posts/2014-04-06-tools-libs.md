@@ -79,4 +79,9 @@ published: true
 | Command + Option + F | 替换
 
 
+## 小Tips
+1. CoreData中关闭 WAL journal mode使用options, 传递到addPersistentStoreWithType中。
+
+		NSDictionary* options = @{ NSSQLitePragmasOption:@{@"journal_mode":@"DELETE" }};
+
 
