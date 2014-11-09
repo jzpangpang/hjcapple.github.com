@@ -26,6 +26,23 @@ layout: default
   </section>
   <section class="post">
   {{ content }}
+
+  <!-- Duoshuo Comment BEGIN -->  
+  <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>  
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hjcapple"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
   </section>
   {% if page.guid %}
   <div class="divider">
@@ -36,10 +53,6 @@ layout: default
     <i class="fa fa-circle"></i>
     {% endif %}
     </span>
-    <!-- BEGIN comment icon
-    <span><a href="javascript:leave_comment();" id="leave_comment_link"><i class="fa fa-comment-o"></i></a></span>
-    <span><a href="javascript:collapse_comment();" id="collapse_comment_link" style="display:none;"><i class="fa fa-chevron-up"></i></a></span>
-      END comment icon -->
 
     <span>
     {% if page.next %}
