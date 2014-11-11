@@ -1,5 +1,5 @@
 ---
-title: C++，结合分离的类
+title: C++的多态威力，结合分离的类
 layout: post
 published: true
 
