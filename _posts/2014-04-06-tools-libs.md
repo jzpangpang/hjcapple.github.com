@@ -80,10 +80,19 @@ published: true
 | Command + F | 搜索
 | Command + Option + F | 替换
 
+## git命令
+| 命令            | 说明
+|:--------------		|--------
+| git submodule update --init --recursive | 更新子模块
+
 
 ## 小Tips
 1. CoreData中关闭 WAL journal mode使用options, 传递到addPersistentStoreWithType中。
 
 		NSDictionary* options = @{ NSSQLitePragmasOption:@{@"journal_mode":@"DELETE" }};
+		
+2. 在编写cocos2dx中，有时会遇到类似警告，iCCP: known incorrect sRGB profile 'flash.png'，使用命令来消除，其中convert是ImageMagick中的命令
+
+		find . -type f -name "*.png" -exec convert {} -strip {} \;
 
 
