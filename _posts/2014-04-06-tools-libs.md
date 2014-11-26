@@ -84,7 +84,7 @@ published: true
 | 命令            | 说明
 |:--------------		|--------
 | git submodule update --init --recursive | 更新子模块
-
+| git stash, git stash pop | 保存恢复本地的修改
 
 ## 小Tips
 1. CoreData中关闭 WAL journal mode使用options, 传递到addPersistentStoreWithType中。
