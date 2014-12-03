@@ -79,6 +79,7 @@ published: true
 | Command + S | 保存
 | Command + F | 搜索
 | Command + Option + F | 替换
+| Command + Option + H | 除了当前窗口之外，关掉所有的窗口
 
 ## git命令
 | 命令            | 说明
