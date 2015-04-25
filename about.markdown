@@ -3,9 +3,9 @@ title: 我
 layout: page
 ---
 
-### Name
+### 姓名
 黄兢成
 
-### Email
+### 邮箱
 hjcapple@gmail.com
 

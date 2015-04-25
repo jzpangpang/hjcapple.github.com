@@ -16,6 +16,7 @@ published: true
 | [Reveal] 			| 查看iOS应用的UI层次结构。
 | [Crashlytics] 		| 收集程序的崩溃信息。
 | [facebook/chisel] | LLDB 的增强工具。用于辅助调试 iOS app。
+| cloc | 代码统计工具
 
 [CocoaPods]: 			https://github.com/CocoaPods/CocoaPods
 [facebook/Tweaks]: 	https://github.com/facebook/Tweaks
