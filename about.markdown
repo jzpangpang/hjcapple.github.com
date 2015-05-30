@@ -1,5 +1,5 @@
 ---
-title: 我
+title: 联系我
 layout: page
 ---
 
@@ -9,3 +9,5 @@ layout: page
 ### 邮箱
 hjcapple@gmail.com
 
+### QQ
+470756138
