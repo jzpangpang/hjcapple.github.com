@@ -1,8 +1,9 @@
 markdown: rdiscount
-pygments: true
+#pygments: true
 permalink: /:year/:month/:day/:title.html
 name: "HJC Blog"
 markdown: rdiscount
+highlighter: pygments
 #markdown: kramdown
 
 author: "HJC"
