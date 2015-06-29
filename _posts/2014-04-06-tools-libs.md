@@ -17,12 +17,14 @@ published: true
 | [Crashlytics] 		| 收集程序的崩溃信息。
 | [facebook/chisel] | LLDB 的增强工具。用于辅助调试 iOS app。
 | cloc | 代码统计工具
+| [Diffbot] | 一个网络API，可以分析出网页的结构和信息
 
 [CocoaPods]: 			https://github.com/CocoaPods/CocoaPods
 [facebook/Tweaks]: 	https://github.com/facebook/Tweaks
 [Reveal]: 			http://revealapp.com/
 [Crashlytics]: 		http://try.crashlytics.com
 [facebook/chisel]: 	https://github.com/facebook/chisel
+[Diffbot]: http://www.diffbot.com
 
 
 ## 源码
@@ -43,6 +45,7 @@ published: true
 | [MGSwipeTableCell] | TableViewCell左右滑动，露出下面的按钮
 | [nanovg] | 轻量级矢量图绘画库
 | [libextobjc] | Objective-C 扩展
+| [goose] | 一个网页分析库，可以抽取出html中的文章内容，有Scala, Python, Go语言版本
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
@@ -58,6 +61,7 @@ published: true
 [nanovg]: https://github.com/memononen/nanovg
 [MGSwipeTableCell]: https://github.com/MortimerGoro/MGSwipeTableCell
 [libextobjc]: https://github.com/jspahrsummers/libextobjc
+[goose]: https://github.com/GravityLabs/goose
 
 
 ## 常用命令
