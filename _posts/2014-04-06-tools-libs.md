@@ -46,6 +46,7 @@ published: true
 | [nanovg] | 轻量级矢量图绘画库
 | [libextobjc] | Objective-C 扩展
 | [goose] | 一个网页分析库，可以抽取出html中的文章内容，有Scala, Python, Go语言版本
+| [GCDWebServer] | Lightweight GCD based HTTP server for OS X & iOS
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
@@ -62,6 +63,7 @@ published: true
 [MGSwipeTableCell]: https://github.com/MortimerGoro/MGSwipeTableCell
 [libextobjc]: https://github.com/jspahrsummers/libextobjc
 [goose]: https://github.com/GravityLabs/goose
+[GCDWebServer]: https://github.com/swisspol/GCDWebServer
 
 
 ## 常用命令
