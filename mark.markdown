@@ -11,6 +11,24 @@ layout: page
 |:--------------		|--------|-----
 | [长度是怎样炼成的](http://songshuhui.net/archives/13480) | 木遥 | 点没有长度和面积，为什么由点组成的线和面会具有长度和面积？
 | [理解矩阵](http://blog.csdn.net/myan/article/details/647511) | 孟岩 | 直观解释矩阵
+| [正态分布的前世今生](http://www.52nlp.cn/正态分布的前世今生pdf-版) | rickjin | 为什么很多事物都类似正态分布？
+| [编程珠玑番外篇系列](http://blog.youxu.info) | 徐宥 | 计算机八卦
+| [C++0x漫谈](http://blog.csdn.net/pongba/article/category/158724) | 刘未鹏 | 讲述C++11标准
+| [Mac OS X 背后的故事](http://www.douban.com/group/topic/23658084/) | 王越 | 介绍Mac OS X开发的过程
+| [ZIP压缩算法详细分析及解压实例解释](http://www.cnblogs.com/esingchan/p/3958962.html) | esingchan | 分析zip格式
+
+## 经得起再读的书
+| 书籍           | 作者 
+|:--------------		|--------
+| [哥德尔、艾舍尔、巴赫 -- 集异璧之大成](http://book.douban.com/subject/1291204/) | [美] 侯世达 
+| [深入理解计算机系统](http://book.douban.com/subject/1230413/) | Randal E.Bryant / David O'Hallaron 
+| [黑客与画家](http://book.douban.com/subject/6021440/) | [美] Paul Graham 
+| [游戏引擎架构](http://book.douban.com/subject/25815142/) | [美] Jason Gregory (杰森.格雷戈瑞) 
+| [金庸全集](http://book.douban.com/subject/3532347/) | 金庸
+| [设计心理学](http://book.douban.com/subject/4606471/) | [美]唐纳德·A·诺曼 
+| [Windows图形编程](http://book.douban.com/subject/1231794/) | [美] Feng Yuan 
+| [暗时间](http://book.douban.com/subject/6709809/) | 刘未鹏 
+| [深度探索C++对象模型](http://book.douban.com/subject/1091086/) | [美] Stanley B. Lippman
 
 ## 工具
 
