@@ -12,5 +12,7 @@ author: "HJC"
 navigations:
   - title: 文章
     href: /index.html
+  - title: 备忘
+    href: /mark.html
   - title: 联系我
     href: /about.html

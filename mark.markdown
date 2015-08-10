@@ -1,11 +1,16 @@
 ---
-title: 开发的工具和库列表
-layout: post
-published: true
-
+title: 备忘
+layout: page
 ---
 
-记录下一些开源软件，代码的使用。方便自己以后查找。
+记下有价值的信息，方便以后查找。
+
+## 很好的文章
+
+| 文章           | 作者 | 简介 
+|:--------------		|--------|-----
+| [长度是怎样炼成的](http://songshuhui.net/archives/13480) | 木遥 | 点没有长度和面积，为什么由点组成的线和面会具有长度和面积？
+| [理解矩阵](http://blog.csdn.net/myan/article/details/647511) | 孟岩 | 直观解释矩阵
 
 ## 工具
 
@@ -102,5 +107,8 @@ published: true
 2. 在编写cocos2dx中，有时会遇到类似警告，iCCP: known incorrect sRGB profile 'flash.png'，使用命令来消除，其中convert是ImageMagick中的命令
 
 		find . -type f -name "*.png" -exec convert {} -strip {} \;
+		
+
+
 
 
