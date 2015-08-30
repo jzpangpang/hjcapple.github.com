@@ -16,6 +16,7 @@ layout: page
 | [C++0x漫谈](http://blog.csdn.net/pongba/article/category/158724) | 刘未鹏 | 讲述C++11标准
 | [Mac OS X 背后的故事](http://www.douban.com/group/topic/23658084/) | 王越 | 介绍Mac OS X开发的过程
 | [ZIP压缩算法详细分析及解压实例解释](http://www.cnblogs.com/esingchan/p/3958962.html) | esingchan | 分析zip格式
+| [李想十六年的创业分享：做正确的事，不做容易的事](http://blog.jobbole.com/89975/) | 李想 | 创业做事相关
 
 ## 经得起再读的书
 | 书籍           | 作者 
