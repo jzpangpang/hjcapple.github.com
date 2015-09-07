@@ -75,6 +75,7 @@ layout: page
 | [libextobjc] | Objective-C 扩展
 | [goose] | 一个网页分析库，可以抽取出html中的文章内容，有Scala, Python, Go语言版本
 | [GCDWebServer] | Lightweight GCD based HTTP server for OS X & iOS
+| [popping](https://github.com/schneiderandre/popping) | A collection of animation examples for iOS apps.
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
