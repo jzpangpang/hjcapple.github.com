@@ -101,6 +101,7 @@ layout: page
 | 命令            | 说明
 |:--------------		|--------
 | qmake -spec macx-xcode	| 从 qt 配置文件，生成 xcode工程
+| clang -rewrite-objc main.m | 将objc源码输出成cpp源码
 | stars:>1	| 在 github 中 搜索有星星的项目，之后可以按照星星多少来排序
 | svn propset svn:ignore "*.obj" . | 设置svn的忽略文件
 | svn propedit svn:ignore . | 使用编辑器来修改svn的忽略文件
