@@ -45,7 +45,8 @@ layout: page
 | [马克鳗](http://www.getmarkman.com) | 设计稿标注、测量工具
 | [Pixel Winch](http://www.ricciadams.com/projects/pixel-winch) | 设计稿标注、测量工具
 | [Prepo](https://itunes.apple.com/tw/app/prepo/id476533227?mt=12) | 生成icon和素材
-| [tinypng](http://www.cocoachina.com/ios/20150717/12626.html) | 压缩图片
+| [tinypng](https://tinypng.com) | 压缩图片
+| [Swiftify](https://objectivec2swift.com/) |辅助将objc代码转成swift
 
 [CocoaPods]: 			https://github.com/CocoaPods/CocoaPods
 [facebook/Tweaks]: 	https://github.com/facebook/Tweaks
