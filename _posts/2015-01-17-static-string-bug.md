@@ -1,5 +1,5 @@
 ---
-title: 静态缓冲区引起游戏闪退的bug
+title: Bug 备忘：静态缓冲区引起游戏闪退
 layout: post
 published: true
 

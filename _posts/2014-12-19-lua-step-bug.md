@@ -1,5 +1,5 @@
 ---
-title: cocos2dx中使用lua绑定调用C++对象函数引起的bug
+title: Bug 备忘：cocos2dx 中使用lua绑定调用C++对象函数
 layout: post
 published: true
 
