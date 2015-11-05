@@ -135,6 +135,11 @@ layout: page
 
 		find . -type f -name "*.png" -exec convert {} -strip {} \;
 		
+3. 编写 Action Exensition 时候，在 iPad 版本需要全部，需要添加：
+
+		<key>NSExtensionActionWantsFullScreenPresentation</key>
+		<true/>
+		
 
 
 
