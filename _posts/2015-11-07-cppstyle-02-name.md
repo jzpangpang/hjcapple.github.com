@@ -1,5 +1,5 @@
 ---
-title: C++ 编程规范（2）-- 命令约定
+title: C++ 编程规范（2）-- 命名约定
 layout: post
 published: true
 ---
