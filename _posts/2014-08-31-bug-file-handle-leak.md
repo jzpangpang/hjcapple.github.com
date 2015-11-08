@@ -1,5 +1,5 @@
 ---
-title: Bug 备忘：cocos2d中播放声音隐藏的坑
+title: Bug 备忘：cocos2d 中播放声音隐藏的坑
 layout: post
 published: true
 

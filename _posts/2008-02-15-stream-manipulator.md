@@ -1,5 +1,5 @@
 ---
-title: 写自己的C++流操纵符
+title: 写自己的 C++ 流操纵符
 layout: post
 published: true
 

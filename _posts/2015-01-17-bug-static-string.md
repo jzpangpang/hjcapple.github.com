@@ -5,7 +5,7 @@ published: true
 
 ---
 
-将《风暴传说》移植到 Android 的过程中，出现了个 Bug。游戏在 Android 机上玩两三个小时会偶然闪退。
+将游戏移植到 Android 的过程中，出现了个 Bug。游戏在 Android 机上玩两三个小时会偶然闪退。
 
 进行调试，发现表面原因。
 

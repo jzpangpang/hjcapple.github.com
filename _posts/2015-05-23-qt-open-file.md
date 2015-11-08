@@ -1,5 +1,5 @@
 ---
-title: Bug 备忘：OS X系统上，Qt 程序双击图标打开文件会崩溃
+title: Bug 备忘：OS X 系统上，Qt 程序双击图标打开文件会崩溃
 layout: post
 published: true
 

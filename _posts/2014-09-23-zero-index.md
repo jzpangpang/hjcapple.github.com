@@ -1,5 +1,5 @@
 ---
-title: 为什么应该从0开始计数(翻译)
+title: 为什么应该从 0 开始计数(翻译)
 layout: post
 published: true
 
