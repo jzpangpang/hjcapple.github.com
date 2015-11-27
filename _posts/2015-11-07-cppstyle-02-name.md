@@ -93,7 +93,7 @@ published: true
 		size_t    _height;
 	}
 
-私有的成员变量，通常会出现在C风格的struct中，前面不用加下划线。比如：
+public 的成员变量，通常会出现在C风格的struct中，前面不用加下划线。比如：
 
     struct Color4f
     {
