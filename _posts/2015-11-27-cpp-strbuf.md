@@ -134,8 +134,8 @@ html 有些特殊的字符需要转换，所以输出文字的时候需要检查
         if (i > last)
         {
             strbuf_push(result, &text[last], i - last);
-            last = i + 1;
         }
+        last = i + 1;
     }
 
     static void write_html_text(std::vector<char>& result, const std::string& text)
