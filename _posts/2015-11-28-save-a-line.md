@@ -150,7 +150,7 @@ t 为时间值，以秒为单位。一条线由一系列点组成。
 ## 线的存储结构
 最后来看一下线的存储。其中的 vi32 就是有符号变长整数。
 
-![save-line.png](/media/images/save-line.png)
+![save-line.svg](/media/images/save-line.svg)
 
 分成两部分，一是位置数据，一是时间数据。UB(4)表示读取 4 个 bit 作为整数。之后就可以得到每个时间数据存储所需要的位数，再按位一直读取。
 
