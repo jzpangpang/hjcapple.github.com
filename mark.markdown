@@ -17,6 +17,8 @@ layout: page
 | [Mac OS X 背后的故事](http://www.douban.com/group/topic/23658084/) | 王越 | 介绍Mac OS X开发的过程
 | [ZIP压缩算法详细分析及解压实例解释](http://www.cnblogs.com/esingchan/p/3958962.html) | esingchan | 分析zip格式
 | [李想十六年的创业分享：做正确的事，不做容易的事](http://blog.jobbole.com/89975/) | 李想 | 创业做事相关
+| [没知识真可怕——应用密码学的笑话之MD5+Salt不安全](http://blog.sina.com.cn/s/blog_77e8d1350100wfc7.html) | sumtec | 账号密码安全
+| [在数学的海洋中飘荡](https://dahuasky.wordpress.com/2009/01/22/在数学的海洋中飘荡/) |dahuasky | 总览数学的各个科目 
 
 ## 经得起再读的书
 | 书籍           | 作者 
