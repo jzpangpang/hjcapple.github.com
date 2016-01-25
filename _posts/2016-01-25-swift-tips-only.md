@@ -1,5 +1,5 @@
 ---
-title: Swift tip: 保证 Int 或者 string 的唯一
+title: Swift tip：保证 Int 或者 string 的唯一
 layout: post
 published: true
 ---
