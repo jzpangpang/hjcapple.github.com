@@ -103,7 +103,7 @@ LayoutKit 提供 API 来设置大小、水平位置、垂直位置。水平垂�
 
 API 设计中
 
-* xLeft、xRight、xCenter、yPlace 等等就是设置 x 方向。
+* xLeft、xRight、xCenter、xPlace 等等就是设置 x 方向。
 * yTop、yBottom、yCenter、yPlace 等等就是设置 y 方向。
 
 <a name="example0"></a>
