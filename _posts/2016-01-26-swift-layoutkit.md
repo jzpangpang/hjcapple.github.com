@@ -51,7 +51,7 @@ self.tk_layoutSubviews { make in
     // 3
     make.sizeToFit(titleLabel, detailLabel, longDetalLabel, timeLabel)
     // 4
-    make.yPlace(10, iconView, 10, titleLabel, make.flexible, timeLabel, 10)
+    make.xPlace(10, iconView, 10, titleLabel, make.flexible, timeLabel, 10)
     // 5
     make.ref(titleLabel).xLeft(detailLabel, longDetalLabel)
     // 6
@@ -78,7 +78,7 @@ self.tk_layoutSubviews { make in
     
     let F = make.flexible
     // 2
-    make.yPlace(F, redView, F, blueView, F, greenView, F)
+    make.xPlace(F, redView, F, blueView, F, greenView, F)
     // 3
     make.yCenter(redView, blueView, greenView)
 }
@@ -110,7 +110,7 @@ API 设计中
 很多界面布局库用起来繁琐，是它每次只操作一两个 view，但事实上我们更关心界面的整体布局。LayoutKit 将所有的 views 作为一个整体，一次排列多个 views，比如：
 
 ```Swift
-make.yPlace(20, redView, make.flexible, blueView, 20)
+make.xPlace(20, redView, make.flexible, blueView, 20)
 ```
 	
 这个调用，就出现下列布局:
