@@ -1,3 +1,9 @@
+---
+title: iOS 界面开发
+layout: post
+published: false
+---
+
 开发 iOS 程序，搭建界面是避免不了的。Xcode 包含了一个工具 Interface Builder，可以用图形化的方式，使用鼠标拖拉来创建界面。
 
 Xcode 3.0 之前 Interface Builder 创建的文件是二进制格式 nib，nib 代表 NeXT Interface Builder。乔布斯从苹果公司出走之后，创建了下一个公司 NeXT, 之后 NeXT 又被苹果公司收购。现在 iOS 或 OS X 开发的整套系统、工具、类库最开始都源自 NeXT。二进制格式不好管理，也不方便版本控制，Xcode 3.0 之后，Interface Builder 使用了一种新的文件格式 xib。xib 的意思可能是 XML Interface Builder，也有可能是 OS X Interface Builder。xib 使用了 XML，在工程编译的时候再转换成 nib。
@@ -19,19 +25,30 @@ Xcode 3.0 之前 Interface Builder 创建的文件是二进制格式 nib，nib �
 
 另外上面的关系，并非是完全对立的，完全可以配合起来。同一个工程中，一部分界面可以使用 xib, 一部分界面使用代码。或一部分界面使用 frame 布局，一部分界面使用 AutoLayout。
 
-我们的讨论主要分成三部分。
-
-* 是否应该使用 storyboard。
-* 使用图形化方式或使用代码。
-* frame 布局或 AutoLayout。
-
 至于 Size Class，其实也是一个独立的部分，只是很多文章都会将 Size Class 和 AutoLayout 放到一起说。
 
 ## Storyboard
 
 Storyboard 可以看成是一堆 xib 的集合，每个 xib 对于一个场景(scene)，并可设置场景之间的关系。场景的关系，在界面表示成一些连线，这样可以比较直观地看出它们的跳转，嵌套等关系。
 
-Storyboard 的想法是好的。但是它的问题也很多。我自己是不推荐大量使用的，只能作为一个辅助工具。
+Storyboard 的想法是好的，只是 Storyboard 有自己的限制。
+
+* Storyboard 将多个场景同时显示出来，打开时候会比较慢。
+* 电脑的屏幕较小（比如我在用的的是 13 寸的 MacBook Pro)，编辑起来会很拥挤。
+* Storyboard 多人编辑后，进行合并会经常冲突。
+
+通常的解决方法是拆分 Storyboard，将其拆分成多个，项目组的成员每人负责一个，尽量避免同时编辑 Storyboard。
+
+Storyboard 中可以设置场景之间的关系，但是设置是很弱的。实际工程中的界面切换很多时候并非是线性的，而是根据条件来跳转。某条件下跳转到这个界面，另一条件下跳转到另一个界面，这样就需要代码来配合。
+
+另外做 iPhone 和 iPad 的 Universal 版本。会出现不同的设备下，界面布局有所不同。比如设置界面，iPad 屏幕较大，可以设计成分屏，ViewController1、ViewController2 左右并排。iPhone 屏幕较小，就设计成先显示 ViewController1，点击之后再显示 ViewController2。这种情况下，嵌套关系完全不同，用 Storyboard 不是很适当了。这样可以将 ViewController1，ViewController2 拆分分离的 xib，在用根据情况用代码将界面拼接处理。
+
+Storyboard 将多个场景同时显示出来，这既是它的优点，也恰好是它的缺点。
+
+## Xib
+
+
+/////////
 
 在一个实际工程中，需求是会不断修改。对于与代码界面
 
