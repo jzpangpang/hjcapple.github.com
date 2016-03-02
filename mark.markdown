@@ -13,12 +13,13 @@ layout: page
 | [理解矩阵](http://blog.csdn.net/myan/article/details/647511) | 孟岩 | 直观解释矩阵
 | [正态分布的前世今生](http://www.52nlp.cn/正态分布的前世今生pdf-版) | rickjin | 为什么很多事物都类似正态分布？
 | [编程珠玑番外篇系列](http://blog.youxu.info) | 徐宥 | 计算机八卦
-| [C++0x漫谈](http://blog.csdn.net/pongba/article/category/158724) | 刘未鹏 | 讲述C++11标准
-| [Mac OS X 背后的故事](http://www.douban.com/group/topic/23658084/) | 王越 | 介绍Mac OS X开发的过程
-| [ZIP压缩算法详细分析及解压实例解释](http://www.cnblogs.com/esingchan/p/3958962.html) | esingchan | 分析zip格式
+| [C++ 0x 漫谈](http://blog.csdn.net/pongba/article/category/158724) | 刘未鹏 | 讲述 C++ 11 标准
+| [Mac OS X 背后的故事](http://www.douban.com/group/topic/23658084/) | 王越 | 介绍 Mac OS X 开发的过程
+| [ZIP压缩算法详细分析及解压实例解释](http://www.cnblogs.com/esingchan/p/3958962.html) | esingchan | 分析 zip 格式
 | [李想十六年的创业分享：做正确的事，不做容易的事](http://blog.jobbole.com/89975/) | 李想 | 创业做事相关
 | [没知识真可怕——应用密码学的笑话之MD5+Salt不安全](http://blog.sina.com.cn/s/blog_77e8d1350100wfc7.html) | sumtec | 账号密码安全
 | [在数学的海洋中飘荡](https://dahuasky.wordpress.com/2009/01/22/在数学的海洋中飘荡/) |dahuasky | 总览数学的各个科目 
+| [山月记](http://mp.weixin.qq.com/s?__biz=MzAxNDY1Mzk5Mw==&mid=401481391&idx=1&sn=9dd9f4ba180e3c8dc4d0842284e114f3#rd) |中岛敦 | 一篇散文
 
 ## 经得起再读的书
 | 书籍           | 作者 
@@ -80,6 +81,7 @@ layout: page
 | [GCDWebServer] | Lightweight GCD based HTTP server for OS X & iOS
 | [popping](https://github.com/schneiderandre/popping) | A collection of animation examples for iOS apps.
 | [Cartography](https://github.com/robb/Cartography) | A declarative Auto Layout DSL for Swift
+| [Anti-Grain Geometry](http://www.antigrain.com/index.html) | High Fidelity 2D Graphics
 
 [ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [BlocksKit]: 		https://github.com/zwaldowski/BlocksKit
