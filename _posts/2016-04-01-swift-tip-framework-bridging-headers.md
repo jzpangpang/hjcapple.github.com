@@ -24,7 +24,7 @@ published: true
 	//! Project version string for sharelib.
 	FOUNDATION_EXPORT const unsigned char sharelibVersionString[];
 
-将这个文件直接从工程中删掉（不是注释代码，而是直接删掉）。之后就一切跟在目标为 App 一样，配置好桥接头文件就行了。
+将这个文件直接从工程中删掉（不是注释代码，而是直接删掉）。或者在 sharelib 的配置 Build Phases/Headers 中，将 sharelib.h 去掉。之后就一切跟在目标为 App 一样，配置好桥接头文件就行了。
 
 这样做为什么可以呢，其实我也不清楚。我只是觉得既然在 App 可以使用桥接头文件，在 framework 中没有理由不可以，一定是某个配置有所不同。之后我就建立目标分别为 App、静态库、framework 的工程，依次对比它们的配置选项，再尝试修改。一个小时左右，发现了这个似乎很白痴的取巧方法。
 	
