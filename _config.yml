@@ -1,13 +1,10 @@
 markdown: rdiscount
-#pygments: true
 permalink: /:year/:month/:day/:title.html
 name: "HJC Blog"
 markdown: rdiscount
-highlighter: pygments
-#markdown: kramdown
+highlighter: rouge
 
 author: "HJC"
-#disqus: "gopherwood"
 
 navigations:
   - title: 文章
