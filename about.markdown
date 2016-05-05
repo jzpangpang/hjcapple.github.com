@@ -9,5 +9,3 @@ layout: page
 ### 邮箱
 hjcapple@gmail.com
 
-### QQ
-470756138
