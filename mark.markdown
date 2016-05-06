@@ -7,8 +7,8 @@ layout: page
 
 ## 很好的文章
 
-| 文章           | 作者 | 简介 |
-|--------------	|--------|-----|
+| 文章           | 作者 | 简介 
+|--------------|--------|-----
 | [长度是怎样炼成的](http://songshuhui.net/archives/13480) | 木遥 | 点没有长度和面积，为什么由点组成的线和面会具有长度和面积？
 | [理解矩阵](http://blog.csdn.net/myan/article/details/647511) | 孟岩 | 直观解释矩阵
 | [正态分布的前世今生](http://www.52nlp.cn/正态分布的前世今生pdf-版) | rickjin | 为什么很多事物都类似正态分布？
@@ -22,8 +22,9 @@ layout: page
 | [山月记](http://mp.weixin.qq.com/s?__biz=MzAxNDY1Mzk5Mw==&mid=401481391&idx=1&sn=9dd9f4ba180e3c8dc4d0842284e114f3#rd) |中岛敦 | 一篇散文
 
 ## 经得起再读的书
+
 | 书籍           | 作者 
-|:--------------		|--------
+|:--------------|--------
 | [哥德尔、艾舍尔、巴赫 -- 集异璧之大成](http://book.douban.com/subject/1291204/) | [美] 侯世达 
 | [深入理解计算机系统](http://book.douban.com/subject/1230413/) | Randal E.Bryant / David O'Hallaron 
 | [黑客与画家](http://book.douban.com/subject/6021440/) | [美] Paul Graham 
@@ -37,7 +38,7 @@ layout: page
 ## 工具
 
 | 名称            	| 说明
-|:--------------		|--------
+|:--------------|--------
 | [CocoaPods] 		| 管理iOS项目中第三方开源代码。
 | [facebook/Tweaks] | 微调iOS动画参数 
 | [Reveal] 			| 查看iOS应用的UI层次结构。
@@ -62,7 +63,7 @@ layout: page
 ## 源码
 
 | 名称            | 说明
-|:--------------		|--------
+|:-------------|--------
 | [ReactiveCocoa]	| 函数式，响应式编程框架 
 | [BlocksKit] 		| 让一些iOS基础类，更好地支持Block语法。
 | [Masonry] 			| 定义了自己的DSL。大大简化iOS/Mac中，AutoLayout的写法。
@@ -104,7 +105,7 @@ layout: page
 ## 常用命令
 
 | 命令            | 说明
-|:--------------		|--------
+|:-------------|--------
 | qmake -spec macx-xcode	| 从 qt 配置文件，生成 xcode工程
 | clang -rewrite-objc main.m | 将objc源码输出成cpp源码
 | stars:>1	| 在 github 中 搜索有星星的项目，之后可以按照星星多少来排序
@@ -112,8 +113,9 @@ layout: page
 | svn propedit svn:ignore . | 使用编辑器来修改svn的忽略文件
 
 ## Mac 系统常用快捷键
+
 | 快捷键           | 说明
-|:--------------		|--------
+|:------------|--------
 | Command + W | 关闭窗口
 | Command + Q | 关闭程序
 | Command + Space | 切换输入法
@@ -125,12 +127,14 @@ layout: page
 | Command + Option + H | 除了当前窗口之外，关掉所有的窗口
 
 ## git命令
+
 | 命令            | 说明
-|:--------------		|--------
+|:------------|--------
 | git submodule update --init --recursive | 更新子模块
 | git stash, git stash pop | 保存恢复本地的修改
 
 ## 小Tips
+
 1. CoreData中关闭 WAL journal mode使用options, 传递到addPersistentStoreWithType中。
 
 		NSDictionary* options = @{ NSSQLitePragmasOption:@{@"journal_mode":@"DELETE" }};

@@ -1,7 +1,11 @@
 permalink: /:year/:month/:day/:title.html
 name: "HJC Blog"
 markdown: kramdown
+highlight: true
 highlighter: rouge
+
+kramdown:
+  input: GFM
 
 author: "HJC"
 
